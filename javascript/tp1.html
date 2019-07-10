@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice1</title>
+</head>
+<body><h1>Relevés de notes<h1>
+
+<script type="text/javascript">
+
+	/*function nbRandomT() {
+		// nbRandomT taille du tableau entre 1 et 15
+	var nombreAleatoire = Math.random() * (15 - 1) + 1;
+	var entierAleatoireT = Math.floor(nombreAleatoire);
+	
+	return entierAleatoireT;
+}
+
+
+	function nbRandomN() {
+		// nbRandomN notes de 0 à 20
+	var nombreAleatoire = Math.random() * (20 - 1) + 1;
+	var entierAleatoireN = Math.floor(nombreAleatoire);
+	return entierAleatoireN;
+	
+}
+
+	var notes = [];
+
+	for (var i=0;i<=nbRandomT();i++){
+	notes[i] = nbRandomN();
+
+	document.write(notes[i]+"<br>");
+	
+}	
+	function moyenne() {
+  
+  var somme=0;
+  var nombre=nbRandomN.length;
+  for (var i=0; i<nbRandomN; i++) somme+=nbRandomN[i];
+  return somme/nombre;
+}
+
+
+	
+	document.write("la moyenne est"+ somme/nombre);
+
+*/
+function nbRandom(min,max) {
+	max++;	
+	var nombreAleatoire = Math.random() * (max -min) +min;
+	var entierAleatoire = Math.floor(nombreAleatoire);
+	
+	return entierAleatoire;
+}
+	// générer un nombre aléatoire entre 1 et 15 correspondant aux nombres de notes à générer
+	var nbNotes = nbRandom(1,15);
+	document.write(nbNotes);
+	// préparer un tableau dans lequel on va mettre toutes les notes
+	var notes = [];
+	// faire une boucle pour générer ce nombre de notes
+	for (i=0;i < nbNotes;i++) {
+		// générer une note entre 0 et 20
+		var note = nbRandom(0,20);
+		// insérer cette note dans le tableau de notes
+		notes.push(note);
+		//notes[i] = nbRandom(); //alernative a la ligne du dessus
+	}
+		
+		console.log(notes);
+
+
+
+	var somme = 0
+	// faire une boucle pour calaculer la somme de toutes les notes
+	for (i=0;i < nbNotes;i++) {
+		somme = somme + notes[i];
+		// somme+=notes[i];
+	}
+	// calcul d'une moyenne = somme des notes / nb de notes
+	var moyenne = somme / nbNotes;
+	// arrondir le chiffre du dessus
+	moyenne = Math.round(moyenne);
+	/*// arrondir 2 chiffres apres la ,
+	moyenne = moyenne.toFixed(2);
+	moyenne = Math.round(moyenne *100) / 100;*/
+
+				
+		console.log(moyenne);
+
+
+		for ( i=0;i<nbNotes;i++) {
+			// creer un noeud pour le mettre en tableau
+			var textNode = document.createTextNode(notes[i]);
+			document.body.appendChild(textNode);
+			var brNode = document.createElement("br");
+
+			document.body.appendChild(brNode);
+		}
+
+		// afficher la moyenne :
+		var textMoyenne = "moyenne =" + moyenne;
+		var pNode = document.createElement("p");
+		pNode.innerHTML = textMoyenne;
+
+		document.body.appendChild(pNode);
+
+</script>
+</body>
+</html>

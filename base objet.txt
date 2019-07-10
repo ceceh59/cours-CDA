@@ -1,0 +1,24 @@
+encapsulation : proteger les attributs d'une methode
+heritage : on surcharge une methode meme methode meme nom mais plus de parametres
+classe mere => fille
+polymorphisme : il faut un heritage
+classe mere et plusieurs classes filles, la classe mere peut construire les filles et pas l'inverse
+classe A			classe B extends A
+A a = new B();
+et pas B b = new A();
+
+
+systeme d'exploitation : linus windows 
+ensemble de programme charge d'etablir une relation entre les ressources materielles les applications et l'utilisateur
+interface entre le hard et le soft
+
+APK : sys embarque ds une appli telecharge sur playstore
+
+
+inconvenient android: trop de pub
+
+API : librairies
+
+framework application pour gerer les applications
+
+let var log scala

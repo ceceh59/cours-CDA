@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1 style="color:green">jQuery2</h1>
+	
+<script
+		  src="http://code.jquery.com/jquery-3.3.1.min.js"
+		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		  crossorigin="anonymous"></script>
+
+		<script>
+			// exécuter un code uniquement quand tout le DOM est chargé
+			// même si des éléments sont écrits après cette balise script
+			$(document).ready(function() {
+				// ici le h1 n'existe pas encore dans la page, mais comme cette ligne ne sera exécutée qu'à la fin du chargement, pas de problème
+				$("h1").css('font-size', '30px');
+			});
+		</script>
+	
+
+		<input type="text" id="age"/>
+
+
+
+
+		<script>
+			// exécuter un code uniquement quand tout le DOM est chargé
+			// même si des éléments sont écrits après cette balise script
+			$(document).ready(function() {
+				$("h1").css('color', 'blue');
+			});
+
+			/* équivalent javascript */
+			/*
+			window.addEventListener('DOMContentLoaded', function() {
+			});
+			*/
+
+			$(document).on('keypress', function() {
+				console.log('touche pressée');
+			});
+
+
+			$("#age").on('keypress', function(event) {
+				console.log(event.charCode);
+				// tester une plage de code
+				if (event.charCode < 48 || event.charCode > 57) {
+					// touche non autorisée, on voulait que les chiffres de 0 à 9
+					event.preventDefault();
+				}
+			});
+
+			// le keydown est déclenché dès l'appui sur la touche, donc plus tôt que le keypress
+			/*
+			$("#age").on('keydown', function(event) {
+				// on a vu que charCode n'existe pas encore dans le keydown alors qu'il était déjà déclaré dans le keypress
+				console.log(event.keyCode);
+				// tester une plage de code
+				if ((event.keyCode < 96 || event.keyCode > 105) && event.keyCode != 8) {
+					// touche non autorisée, on voulait que les chiffres de 0 à 9
+					event.preventDefault();
+				}
+			});
+			*/
+
+
+				/* Exercice : afficher dynamiquement les valeurs de keycode, charcode, key et which dans des spans en détectant les événements clavier dans un champ texte
+				2 champs texte : un qui attrape l'évenement keypress, et l'autre keydown*/
+		
+
+
+		</script>
+
+		
+		<br>
+		<br>
+		<br>
+
+		<input type="text" id="keypress"><br>
+		keyCode :<span id="span1"></span><br>
+		charCode :<span id="span2"></span><br>
+		key :<span id="span3"></span><br>
+		which :<span id="span4"></span><br>
+		<br>
+		<input type="text" id="keydown"><br>
+		keyCode :<span id="span5"></span><br>
+		charCode :<span id="span6"></span><br>
+		key :<span id="span7"></span><br>
+		which :<span id="span8"></span><br>
+
+		<script>
+
+		$("input#keypress").on('keypress', function(event) {
+			$("#span1").text(event.keyCode);
+			$("#span2").text(event.charCode);
+			$("#span3").text(event.key);
+			$("#span4").text(event.which);
+
+			var code = event.keyCode || event.which
+			
+
+		
+			// si on appuie sur s dans ce champ, annuler l'écouteur qu'on a mis sur le champ age (on pourra donc retaper des lettres dans le champs age)
+				// on fait ceci avec la méthode off() sur un élément jquery
+				if (event.which == 115) {
+					$("#age").off('keypress');
+				}
+		});
+
+		$("input#keydown").on('keydown', function(event) {
+			$("#span5").text(event.keyCode);
+			$("#span6").text(event.charCode);
+			$("#span7").text(event.key);
+			$("#span8").text(event.which);
+			});
+					
+			
+		
+		
+		
+							
+		</script>
+	</body>
+</html>

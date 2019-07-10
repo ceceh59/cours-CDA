@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Objet 2</h1>
+
+	<script src="Entreprise.js"></script>
+	<script src="Salarie.js"></script>
+	<script src="exo objet.js"></script>
+	<script>
+		var entreprise = new Entreprise("Ericentreprise","Marseilles");
+		console.log(entreprise);
+
+		var salarie = new Salarie("toto", 2000, "Secrétaire");
+		console.log(salarie);
+
+		var salarie2 = new Salarie("jean", 6000, "PDG");
+		
+
+		var embaucheOk = entreprise.embaucher(salarie);
+		if(embaucheOk == true) {
+			alert( 'Le salarie a bien été embauché ');
+		}
+		else {
+			alert('Le salarie est trop cher, et donc pas embauché');
+		}
+
+		console.log(entreprise);
+
+		entreprise.embaucher(salarie2);
+		console.log(entreprise);
+
+
+		/* Exercice */
+		/*
+		-Modeliser la classe Voiture qui possèdent plusieurs propriétés carburant, couleur et 4 roues
+
+		-Modéliser la classe Roue avec comme propriétés taille, et usure.
+		Usure va de 0 à 100 (100 étant une roue complètement usée). Un nouveau pneu doit avoir pour valeur par défaut 0 pour l'usure
+		
+		-Pour le pneu, faire une méthode qui vérifie si le pneu est usé ou non,(un pneu est usé quand son usure dépasse 80) et qui renvoie vrai si le pneu est usé, faux sinon
+		
+		-Pour la voiture, faire une méthode rouler, qui augmente l'usure des pneus de 10
+
+		-Pour la voiture, faire une méthode qui changent les pneus, après avoir vérifier si chacun des pneux est usé. Si oui remplacer les pneus usés par des nouveaux pneus
+
+		*/
+
+	
+
+
+
+</script>
+</body>
+</html>

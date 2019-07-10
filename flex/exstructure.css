@@ -1,0 +1,85 @@
+header {
+	color: white;
+	background: purple;
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+}
+nav {
+	font-size: 15px;
+	color: purple;
+	display: flex;
+}
+.enr {
+	padding-left: : 2em;
+}
+.acc {
+	padding-left: 2em;
+}
+.header3 {
+	background-image:  url("../css/image.jpg");
+	padding-bottom: 3px;
+	justify-content: center;
+	display: flex;
+	align-items: stretch;
+}
+.container{
+	font-size: 13px;
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	flex-direction: column;
+	text-align: left;
+}
+.test {
+	display: flex;
+	padding-top: 30px;
+}
+
+.container1{
+	font-size: 13px;
+	display: flex;
+	width: 40%;
+	background: green;
+	text-align: center;
+}
+
+footer {
+	justify-content: center;
+	align-items: stretch;
+}
+
+th,tr,td {
+
+	border: 3px solid black;
+	height: 3em;
+	
+}
+th {
+	background: blue;
+
+}
+.tab {
+	border-collapse: collapse;
+	display: grid;
+	padding-top: 3em;
+}
+table {
+	border-collapse: collapse;	
+}
+th:hover {
+	background-color:#E615E2; 
+}
+tr:hover {
+	background-color:#E615E2; 	
+}
+td:hover {
+	background-color:#4BE615; 
+}
+.fin {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background: #3E1A07;
+	display: flex;
+	justify-content: center;
+}

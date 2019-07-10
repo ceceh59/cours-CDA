@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Les objets en JavaScript</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Les objets</h1>
+        <script>
+          function identite(p, n, a){
+            this.prenom = p;
+            this.nom = n;
+            this.age = a;
+          }
+           function adresse (b,c,d){
+             this.ville = b;
+             this.rue = c;
+              this.numero de rue = d;  
+            }
+        var pierre = new identite ("Pierre","Giraud", 25);
+         var domicile = new adresse ("Paris", "rue des Lilas", 15);
+
+        alert(pierre.prenom); 
+alert('Age de Pierre : ' + pierre.age + '\nVille de Pierre : ' + domicile.ville );
+        </script>
+    </body>
+</html>

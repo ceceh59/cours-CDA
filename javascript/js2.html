@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p style="color:green">Les structures conditionnelles</p>
+
+	<script type="text/javascript">
+		var age = 19;
+		// exécuter des instructions uniquement si une condition est vraie
+		if (age >=18) {
+			console.log("Vous êtes majeur");
+		}
+		else {
+			console.log("Vous êtes mineur");
+		}
+
+			console.log("fin du programme");
+
+			i = 0;
+			if (i == 1){
+
+			}
+
+			/*
+				== : égal à
+				> : supérieur à
+				< : inférieur à 
+				>= : suprérieur ou égal à
+				<= : inférieur ou égal à
+				! = : différent de
+			*/
+
+			var chiffre = 18;
+			var chiffre2 ="18";
+
+			if (chiffre == chiffre2){
+				// oui le double égal ne vérifie pas le type mais uniquement la valeur
+				console.log("la chaine 18 est égale au nombre 18");
+			}
+
+			//comparaison stricte : valeur ET type
+			if (chiffre === chiffre2){
+				console.log("la chaine 18 n'est pas strictement égale au nombre 18, donc on ne rentre pas dans cette condition");
+			}
+
+			// conditions imbriquées :
+			age = 2;
+			if (age>= 18) {
+
+			}
+			else{
+				if (age>3){
+					console.log("vous êtes mineur");
+				}
+				else {
+					console.log("vous êtes bébé");
+				}
+			}
+
+			// équivalent else if
+			if (age >= 18) {
+				console.log("Vous êtes majeur");
+			}
+			else if (age >=3) {
+				console.log("Vous êtes mineur");
+			} 
+			else{
+				console.log("Vous êtes bébé");
+			}
+
+			/*
+
+			opérateur logique
+			|| : OU altrGr6
+			&& : ET
+
+			*/
+			/* Conditions multiples */
+			var age = 24;
+			if (age>=18 && age <=25) {
+			console.log("Ok pour la carte 18-25");	
+			}
+			else{
+				console.log("Pas l'age pour cette carte");
+			}
+
+			/*
+			réduction pour les 18-25, les 45-50 et les 68*/
+			var age = 35;
+			if (age >= 18 && age <= 25 || age>= 45 && age <= 50 || age==68) {
+				console.log("Réduction accordée");     
+			}
+
+			// pour les mêmes expresssions, les parenthèses changent les priorités,et donc le sens des conditions
+			if (age >=18 
+				&&(age <=25 || age >= 45)
+				&& age <= 50
+				|| age == 68) {
+			console.log("Les conditions sont érronées");
+}
+
+			var age = prompt("Votre âge pour la réduc ?");
+			switch (Number(age)) {
+				case 18:
+				console.log("reduc 18");
+				break;
+				case 25:
+				console.log("reduc 25");
+				break;
+				case 65 :
+				console.log("reduc 65");
+				break;
+				case 51:
+				case 52:
+				console.log("reduc 51 et 52");
+				break;
+				default:
+				console.log("aucune reduc");
+			}
+
+
+			// structures itératives
+			// beaucoup utilisé avec les boucles : le type tableau (array)
+			// tableau numerique : accés aux éléments gr^ce à un indice numérique
+			var tableau = [];
+
+			// ajouter des éléments ds le tableau
+			console.log(tableau);
+			tableau.push(1);
+			tableau.push(15);
+			tableau.push("bonjour");
+
+			// accéder aux éléments du tableau
+			console.log(tableau[0]);
+			console.log(tableau[1]);
+			console.log(tableau[2]);
+
+			// indice non existant : la valeur renvoyée est undefined
+			console.log(tableau[3]);
+
+			// modofier un élément ds un tableau
+			tableau[0] = 11;
+			console.log(tableau);
+
+			// boucle FOR (boucle pour)
+			// qui permet de répéter une instruction
+			// un certain nombre de fois
+
+			// pour remplacer par exemple ceci:
+			/*
+			alert(tableau[0]);
+			alert(tableau[1]);
+			alert(tableau[2]);
+*/
+			// on peut faire ceci :
+
+			for (i=0;i<=2;i++){
+
+				alert(tableau[i]);
+				console.log(tableau[i]);
+
+			}
+			// boucle sans fin
+			/*for (i=0;i>=0;i++){
+
+				alert(tableau[i]);
+				console.log(tableau[i]);
+			}*/
+
+			// rendre la condition dynamique sans savoir le nombre d'éléments dans un tableau
+
+		
+			/*for (i=0;i<=tableau.length-1;i++){
+
+				alert(tableau[i]);
+				console.log(tableau[i]);
+
+			}*/
+
+			//on utilise FOR quand on connait le nombre d'itération à l'avance (dynamique ou non)
+
+
+			// boucle while (tant que) 
+			// tirage au sort : demander à l'utilisateur un chiffre entre 1 et 20,
+			// et lui redemander un chiffre tant qu'il ne saisit pas un chiffre entre 1 et 20 (s'il se trompe par exemple)
+
+			var nombre = prompt("Veuillez saisir un nombre entre 1 et 20 :");
+			while (nombre <1 || nombre > 20){
+				alert('Mauvais nombre');
+				nombre = prompt("Veuillez saisir un nombre entre 1 et 20 :");
+			}
+			if (nombre ==6) {
+				alert("gagné");
+			}
+			else {
+				alert ("perdu");
+			}
+ 			// récap while : on utilise la boucle while quand on ne connait pas à l'avance le nombre d'itération
+
+
+
+
+			
+	</script>
+
+</body>
+</html>

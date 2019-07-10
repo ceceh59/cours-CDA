@@ -1,0 +1,499 @@
+       System.out.println("Boujour et bienvenue");
+
+        // déclaration
+        int note;
+
+        // initilisation
+        note = 10;
+
+        // déclaration + assignation de la variable
+        int qte = 12;
+
+        // Déclaration de plusieurs variables
+        int var1, var2, var3;
+
+        //Affichage des valeurs des variables
+        System.out.println(note);
+
+        //Var boolean
+        boolean trouver;
+        trouver = false;
+        System.out.println(trouver);
+
+        // var char
+        char c = 'b';
+        System.out.println('b');
+
+        //var string
+        String chaine = "J'ai les nouilles";
+        System.out.println("chaine");
+
+        //note = Integer.parseInt(car);
+        System.out.println(note);
+
+        //lire les données du clavier
+        Scanner clavier = new Scanner(System.in);
+        System.out.println("Entrez un entier");
+        int valeurClavier;
+        valeurClavier = clavier.nextInt();
+        System.out.println("La valeur est de :" + valeurClavier);
+
+        ///new Scanner(System.in);
+        System.out.println("Entrez une phrase");
+        clavier.nextLine();
+        String valeurClavierString;
+        valeurClavierString = clavier.nextLine();
+        System.out.println("La valeur est : " + valeurClavierString);
+
+        // new Scanner(System.in);
+        System.out.println("Appuyez sur une touche de votre clavier");
+        char carac;
+        carac = clavier.next().charAt(0);
+        System.out.println("La valeur est :" + carac);
+
+        //TP1
+        int heure, minute, seconde, tempsEcoule;
+        tempsEcoule = 3700;
+        seconde = (tempsEcoule / 60) % 60;
+        minute = (tempsEcoule / 60) % 60;
+        heure = (tempsEcoule / 3600) % 60;
+
+        System.out.println("Le temps écoulé est de " + tempsEcoule + " :" + heure + " h" + minute + " m" + seconde + " s");
+
+        //TP2
+        /**
+         * ***Declaration des variables****
+         */
+        //final int TVA = 20;
+        //double pu;
+        //int qte;
+        /**
+         * ***initialisations des variables****
+         */
+        // qte = 10;
+        //pu = 125;
+        //pttc = (pu*qte)*TVA;
+        /**
+         * *** Permutation ****
+         */
+        int p, q, r;
+
+        p = 5;
+        q = 10;
+        System.out.println("Avant la permutaion, p : " + p + "et q : " + q);
+        r = p;
+        p = q;
+        q = r;
+
+        System.out.println("Apres la permutaion, p : " + p + "et q : " + q);
+
+        /**
+         * *** Conditions ****
+         */
+        int entier = 0;
+        if (entier > 0) {
+            System.out.println("c'est strictement positif ");
+        } else if (entier < 0) {
+            System.out.println("c'est strictement négatif ");
+        }
+        System.out.println("c'est null ");
+
+        /**
+         * ***Conditions a deux conditions ****
+         */
+        int a1, b1, c1;
+
+        a1 = 5;
+        b1 = 7;
+        c1 = 8;
+
+        if (a1 > b1 && a1 > c1) {
+            System.out.println(a1);
+        } else if (b1 > a1 && b1 > c1) {
+            System.out.println(b1);
+        } else if (c1 > a1 && c1 > b1) {
+            System.err.println(c1);
+        }
+
+        /**
+         * *** Définition des bornes de l'intervalle****
+         */
+        int borneInf, borneSup;
+        if (b1 > c1) {
+            borneInf = b1;
+            borneSup = c1;
+        } else {
+            borneInf = c1;
+            borneSup = b1;
+        }
+        if (a1 > borneInf && a1 < borneSup) {
+            System.out.println("La valeur " + a1 + "" + "appartient à l'intervalle ]" + borneInf + "," + borneSup + "[");
+
+        } else {
+            System.out.println("La valeur " + a1 + "" + "appartient à l'intervalle ]" + borneInf + "," + borneSup + "[");
+        }
+
+        /**
+         * *** LES BOUCLES ****
+         */
+        //1: tables de multiplication avec les boucles for
+        int multiplicateur;
+
+        multiplicateur = 5;
+        for (int i = 1; i < 12; i++) {
+            System.out.println(multiplicateur + " x " + i + " = " + (i * multiplicateur));
+        }
+
+        //2: tables de multiplication avec les boucles while
+        int j = 0;
+        while (j < 12) {
+            System.out.println(multiplicateur + " x " + j + " = " + (j * multiplicateur));
+            j++;
+        }
+
+        //3 : La somme de chiffre qui forme un nombre
+        int somme = 0, chiffre = 123;
+        while (chiffre != 0) {
+            somme = somme + chiffre % 10;
+            chiffre = chiffre / 10;
+        }
+        System.out.println("La somme est de : " + somme);
+
+        //4: Lire un entier positif et affiche sa configuration binaire
+        int nbre = 4, reste;
+        String configBin = "";
+        while (nbre != 0) {
+            reste = nbre % 2;
+            nbre = nbre / 2;
+            configBin = reste + configBin;
+            System.out.println("La config binaireest :" + configBin);
+        }
+        /**
+         * ***Tableau ****
+         */
+        //1 Déclaration 
+        int[] tabEnt;
+
+        //2 création du tableau
+        tabEnt = new int[10];
+
+        //3 initialisation du tableau
+        for (int i = 0; i < tabEnt.length; i++) {
+            tabEnt[i] = i;
+        }
+
+        //4 parcours et affichage des élements du tableau avec une boucle forEach
+        for (int val : tabEnt) {
+            System.out.println(val);
+        }
+
+        //5 Faire la somme des éléments d'un tableau
+        int somme2 = 0;
+        for (int i = 0; i < tabEnt.length; i++) {
+            somme2 = somme2 + tabEnt[i];
+        }
+        System.out.println(somme2);
+        
+           System.out.println(sommeImpaires(tabEnt));
+    }
+
+    /**
+     * Faire la somme des elements d'un tableau passé en parametre
+     *
+     * @param tab
+     * @return somme
+     */
+    public static int sommeElt(int[] tab) {
+        int somme = 0;
+        for (int i = 0; i < tab.length; i++) {
+            somme = somme + tab[i];
+        }
+        // System.out.printLn(somme);
+        return somme;
+    }
+    
+    //methode pour faire les sommes des chiffre impaires
+    public static int sommeImpaires(int[] Tab) {
+        int somme = 0;
+
+        for (int i = 0; i < Tab.length; i++) {
+            if (Tab[i] % 2 != 0) {
+                somme = somme + Tab[i];
+            }
+            // System.out.printLn(somme);
+
+        }
+        return somme;
+    }
+    
+    //méthodes pour récupere la valeur max d'un tableau
+    public static int valeurMax(int []Tab){
+        int max = Tab[0];
+        for (int i = 1;i<Tab.length;i++) {
+            if(max< Tab[i]){ 
+                max = Tab[i];
+            }
+        }
+        //System.out.printLn(max)
+        return max;
+    }
+    
+    //méthodes pour récupere la valeur min d'un tableau
+    public static int valeurMin(int []Tab){
+        int min = Tab[0];
+        for (int i = 1;i<Tab.length;i++) {
+            if(min> Tab[i]){ 
+                min = Tab[i];
+            }
+        }
+        //System.out.printLn(min)
+        return min;
+    }  
+    //methodes pour verifier si un tableau est strictement croissant
+    public static boolean ordonneTab(int [] Tab){
+        boolean ordonne =  true;
+        int i = 0;  
+        while (i<Tab.length-1 && ordonne){
+            if(Tab[i+1] < Tab[i]){
+                ordonne = false;
+            }
+            i++;
+    }
+    return ordonne;
+    }
+    public static int [] inverserTableau(int[] Tab){
+        int[]tabEnt =  Tab;
+        //new int [Tab.length];
+        //int[]tabEnt1 =  Tab;
+        for (int i = Tab.length-1, j=0; i >= 0; i--,j++) {
+            tabEnt[j] = Tab[i];
+        }
+        return tabEnt;
+    }   
+    
+    /**
+     * Cette methode fait le trie d'un tableau par insertion
+     * @param Tab
+     * @return tabEnt
+     */
+    public static int[] triTableau(int[] Tab){
+        int[]tabEnt = Tab;
+        int j , valInserer;
+        
+        for(int i=0; i<Tab.length-1;i++){
+            valInserer = tabEnt[i];
+            j=i-1;
+                while(j>=0 && valInserer < tabEnt[j]){
+                    tabEnt[j+1] = Tab[j];
+                    j = j-1;
+                }
+           tabEnt[j+1]= valInserer;
+        }
+        return tabEnt;
+    }
+
+        //tableau à deux dim
+        // 1 déclaration à deux dim        
+        int[][] tabEnt;
+        //2 création du tableau 
+        tabEnt = new int[4][4];
+        //3 initialisation à déclaration
+        int[][] tab ={ {0,1,2},
+                           {4,5,6,7},
+                           {8,9,10,11}
+                          };
+        System.out.println(" la taille de tabEnt est "+ tabEnt[0].length);
+        System.out.println(" la taille de tab est "+ tab[0].length);
+        
+      //parcours d'un tableau à deux dim avec le for
+      int k=0;
+      for(int i=0; i<tabEnt.length;i++){
+          for(int j=0;j<tabEnt[i].length;j++,k++){
+              tabEnt[i][j] = k;
+             // System.out.print("  |  "+ tabEnt[i][j]);
+          }
+          //System.out.println("");
+      }
+     //parcours d'un tableau avec une boucle forEach
+       for(int[] sousTab : tabEnt){
+          for(int val :sousTab){
+             System.out.print("  |  "+ val);
+          }
+          System.out.println("");
+      }
+      
+       //déclation + initialisation
+       String [][] nom ={{"BART","LISA"},{"OMER","SIMPSON"}};
+       //déclaration + création
+       String [][] familleSimpson = new String[4][4];
+        
+        familleSimpson[0][0]="BART";
+        familleSimpson[0][1]="LISA";
+         familleSimpson[0][2]="LISA";
+          familleSimpson[0][3]="LISA";
+        familleSimpson[1][0]="OMER";
+        familleSimpson[1][1]="SIMPSON";
+        
+        
+        for(int i=0; i<familleSimpson.length;i++){
+          for(int j=0;j<familleSimpson[i].length;j++,k++){
+             System.out.print("  |  "+ familleSimpson[i][j]);
+          }
+             System.out.println("");
+        }
+        
+    }
+    /**
+     * Faire la somme des éléments d'un tableau passé en paramètre
+     * @param tab
+     * @return somme
+     */
+    public static int sommeElt(int [] tab){
+        int somme =0;
+        for(int i=0;i<tab.length;i++){
+           somme = somme + tab[i];
+        }
+        //System.out.println(somme);       
+        return somme;
+    }
+    public static int sommeImpairs(int [] simpson){
+         int somme =0;
+        for(int i=0;i<simpson.length;i++){
+            if(simpson[i]%2 !=0){
+                somme = somme + simpson[i];
+            }
+        }
+        //System.out.println(somme);       
+        return somme;
+    }/**
+     * 
+     * @param tab
+     * @return 
+     */
+   public static int valeurMax(int[] tab){
+       int max = tab[0];
+       for(int i = 1; i<tab.length;i++){
+           if(tab[i]>max){
+               max = tab[i];
+           }
+       }    
+       return max;
+   }
+   public static boolean tableauOrdonne(int[] tab){
+       boolean ordonne = true;
+       //int i=0;
+      // while(i<tab.length-1 && ordonne){
+      for(int i=0;i<tab.length-1;i++){
+           if(tab[i+1] < tab[i]){
+               ordonne = false;
+               break;
+           }
+           i++;
+           System.out.println("itération : "+ i);
+       }
+       return ordonne;
+   }
+   public static int[] inverserTableau(int[] tab){
+       int[] tabEnt = tab;
+      //new int[tab.length];
+      // int [] tabEnt1 = tab;
+      //for(int i=tab.length-1,j=0 ;   i>=0 ;    i--,j++){
+      for(int i=0; i<tab.length-1;i++){
+          tabEnt[i] = tab[tab.length-i-1];
+      }     
+       return tabEnt;
+   }
+   /**
+    * cette méthode fait le trie d'un tableau par insertion 
+    * @param tab
+    * @return tabEnt
+    */
+   public static int[] triTableau(int[] tab){
+        int[] tabEnt = tab;
+        int j,valInserer;
+         for(int i=1; i<tab.length-1;i++){
+             
+             valInserer = tabEnt[i];
+             j=i-1;      
+                while(j>=0 && valInserer < tabEnt[j]){
+                    tabEnt[j+1]=tab[j];
+                    j=j-1;
+                }
+             tabEnt[j+1] = valInserer;          
+         }              
+        return tabEnt;      
+   }
+    
+
+
+// Ecrire une methode qui reçoit un tableau (n * m) d'entiers et qui verifie si tous les nombres qu'il contient sont strictement positif.
+   int [][]tab ={ {3,4,6,11}, {2,21,7,9},{1,5,12,3} };
+   // exercice 1
+      //  System.out.println(somme);
+        System.out.println(sommeEltImpaire(tab));
+    
+    }
+    public static boolean tousPositif(int [][] tab){
+        boolean positif = true;
+        for (int i = 0; i < tab.length && positif; i++) {
+            for (int j = 0; j < tab[i].length && positif; j++) {
+                if (tab[i][j]<0) {
+                    positif =false; 
+                }
+            } 
+        }
+        return positif;  
+    }
+    // exercice 2
+    
+    public static void propotionNull(int [][] tab){
+        int nbEltNuls= 0;
+            for(int[] sousTab:tab){
+                for(int val:sousTab){
+                    if (val<0){
+                        nbEltNuls++;
+                    }
+                }
+            }
+            System.out.println("La proportion d'éléments nuls :" +(nbEltNuls/nbEltTableau(tab))*100);
+    }
+    public static int nbEltTableau(int [][] tab){
+        int nbElt = 0;
+        for(int[] sousTab:tab){
+            for(int val:sousTab){
+                nbElt++;
+            }
+        }
+        return nbElt;
+    }    
+    
+    
+    // exercice 3
+    public static int sommeEltImpaire(int[][] tab){
+        int somme =0;
+        // premiere ligne
+        for(int i =0; i<tab[0].length;i++){
+            if(tab[0][i]%2 !=0){
+                somme=somme +tab[0][i];
+            }
+        }
+        //derniere ligne
+        for(int i =0; i<tab[tab.length-1].length;i++){
+            if(tab[tab.length-1][i]%2 !=0){
+                somme=somme +tab[tab.length-1][i];
+            }
+        }
+        //premiere colonne
+        for(int j =1; j<tab.length;j++){
+            if(tab[j][0]%2 !=0){
+                somme=somme +tab[j][0];
+            }
+        }
+        // derniere colonne
+         for(int j =1; j<tab[tab.length-1].length;j++){
+            if(tab[tab.length-1][j]%2 !=0){
+                somme=somme +tab[tab.length-1][j];
+            }
+        }
+        return somme;
+    }

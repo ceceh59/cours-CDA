@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		h1 {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Exercice manipulation DOM avec JS</h1>
+	<script>
+	<!--
+		//Exercice manipulation DOM avec JS
+		//Créer les éléments dynamiquement en javascript :
+			//1- créer un conteneur principale (div) avec pour identifiant "contenu", avec une hauteur fixe de 500px, et une bordure de 1px
+			//2- ajouter dans ce div un pâragraphe avec une classe "info" et le texte 
+			//"je suis un paragraphe informatif"
+			//3- créer un button dont la taille de police est 21px et le texte "Cliquez-moi" (button), et placez le à la fin du body
+
+			//créer une fonction qui crée un élément avec le type d'élémént passé en paramètre et renvoi cet élément
+		-->
+		//<!--<div id="contenu" class = "info">
+
+	
+
+		//var newElementDiv = document.createElement("div");
+
+		
+		//newElementDiv.style.border = "1px solid";
+		//newElementDiv.style.height ="500px";
+		//document.body.appendChild(newElementDiv);
+
+		//var newElementP = document.createElement("p");
+		//newElementP.classList.add("info");
+		//newElementP.innerHTML = "je suis un paragraphe informatif";
+		//newElementDiv.appendChild(newElementP);
+		
+
+
+		//function addButton() 
+  // { 
+      //var button = document.createElement("input");
+      //button.type="submit";
+     // button.value="Cliquez-moi";  
+     // p.appendChild(button);
+ // }-->
+
+  			function creerElement(typeElement) {
+				var element = document.createElement(typeElement);
+
+				return element;
+			}
+
+
+			// var divContenu = document.createElement("div");
+			// la ligne au dessus est maintenant par la fonction creerElement
+			var divContenu = creerElement("div");
+			divContenu.id = "contenu";
+			divContenu.style.height = "500px";
+			divContenu.style.border = "1px solid";
+			document.body.appendChild(divContenu);
+
+			var newParagraphe = creerElement("p");
+			newParagraphe.classList = "info";
+			newParagraphe.innerHTML = "je suis un paragraphe informatif";
+			divContenu.appendChild(newParagraphe);
+
+			var button = creerElement("button");
+			button.style.fontSize = "21px";
+			button.textContent = "Cliquez-moi";
+			document.body.appendChild(button);
+
+
+			/** Gestion des événements javascript */
+			/* evenement clic souris gauche */
+			button.addEventListener("click", function(){
+				// alert('clic détecté');
+				var h1 = document.querySelector("h1");
+				h1.style.color = "purple";
+			});
+			// détecter le survol de la souris sur un élément
+			divContenu.addEventListener('mouseover',function() {
+				divContenu.style.backgroundColor = "yellow"
+			});
+			// détecter que la souris sort de l'élément
+			divContenu.addEventListener('mouseout',function() {
+				divContenu.style.backgroundColor = "transparent"
+			});
+		</script>
+  </div>
+</body>
+</html>

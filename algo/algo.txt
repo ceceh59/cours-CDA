@@ -1,0 +1,1233 @@
+Algorithmie 1 :
+
+Un algorithme est une suite d'actions pour résoudre un problème.
+
+Par exemple, le but : faire une recette de cuisine
+Donc en français, préparer les ingrédients, mélanger les ingrédients, entrer la préparation dans le four, chauffer, sortir du four le plat
+
+Pré-requis:
+	ingredient1: farine
+	ingredient2: eau
+	ingredient3: sucre
+	
+Algo (suite d'instructions):
+	sortir ingrédient1
+	sortir ingrédient2
+	sortir ingrédient3
+	
+	mélanger ingredient1 avec ingredient2 : donne preparation_intermediaire
+	melanger preparation_intermediaire avec ingredient3 : donne preparation_finale
+	
+	préchauffer four
+	placer preparation_finale dans four
+	cuire preparation_finale
+	sortir preparation_finale : donne plat_final
+	
+	servir plat_final
+Fin algo
+
+
+- Exercice : écrire un programme qui fait la multiplication de deux chiffres entier, en demandant ces chiffres à l'utilisateur qui excute le programme
+
+Variable : emplacement mémoire pouvant contenir une valeur
+
+Variables:
+	chiffre1: entier
+	chiffre2: entier
+	produit: entier
+
+Algo: 
+	demander à l'utilisateur le premier chiffre
+	stocker la saisie dans chiffre1
+	
+	demander à l'utilisateur le second chiffre
+	stocker la saisie dans chiffre2
+	
+	multiplier chiffre1 avec chiffre2
+	stocker le resultat dans produit
+
+	afficher produit
+Fin algo
+
+Dans un langage qui se rapproche dun langage informatique :
+
+Variables:
+	chiffre1: entier
+	chiffre2: entier
+	produit: entier
+Algo:
+	chiffre1 = saisir "Entrez le premier chiffre"
+	chiffre2 = saisir "Entrez le second chiffre"
+	produit = chiffre1 * chiffre2
+	afficher produit
+Fin algo
+
+- Structures conditionnelles
+	- Si sinon: tester une condition, puis exécuter des instructions seulement si la condition est vraie, sinon faire d'autres instructions
+ 
+	Variables:
+		chiffre1: entier
+	Algo:
+		chiffre1 = saisir "Entrez un chiffre entre 1 et 10"
+
+		si chiffre1 est compris entre 1 et 10
+			afficher "Gagné"
+		sinon
+			afficher "Perdu"
+		fin du si
+
+		Afficher "Fin du jeu"
+	Fin algo
+
+
+Exercice : Ecrire l'algo qui affiche à l'utilisateur si il est majeur ou mineur. Pour cela il faut d'abord lui demander sa date de naissace.
+
+Variables
+	date_naissance : date
+	annee_naissance: entier
+	age : entier
+	année_en_cours : entier
+
+Algorithme
+	annee_en_cours = récupérer année actuelle
+	date_naissance = saisir "date de naissance”
+	annee_naissance = récupérer année dans date_naissance
+	age = année_en_cours - année naissance
+
+	si age>= 18
+		alors afficher majeur
+	sinon 
+		afficher mineur
+	fin si
+Fin algo
+
+- Le SI avec conditions multiples
+	- Une condition peut être un ou plusieurs tests, l'ensemble doit être équivalent à vrai ou à faux
+	
+Variables
+	isOnline: booléan
+Algo
+	SI (vrai)
+		// condition toujours vraie
+	SINON
+		
+	FIN SI
+	
+	SI (faux)
+		
+	SINON
+		// condition toujours fausse
+	FIN SI
+	
+	
+	SI (5 = 6) 
+	
+	FIN SI
+	
+	SI (5 = 6 ET 5 > 3)
+	// va donner SI (faux ET vrai) 
+	// va donner SI (faux) 
+	FIN SI
+	
+	SI (5 = 6 OU 5 > 3)
+	// va donner SI (faux OU vrai) 
+	// va donner SI (vrai) 
+	FIN SI
+	
+	SI (10 = 10 ET 5 > 6 OU 10 < 12)
+		// va donner SI (vrai ET faux OU vrai) 
+		// va donner SI (faux OU vrai) 
+		// va donner SI (vrai) 
+	FIN SI
+	
+	SI (10 = 10 ET (5 > 6 OU 10 < 12))
+		// va donner SI (vrai ET (faux OU vrai)) 
+		// va donner SI (vrai ET vrai) 
+		// va donner SI (vrai) 
+	FIN SI
+	
+	SI (9 = 10 ET 5 > 6 OU 10 < 12)
+		// va donner SI (faux ET faux OU vrai) 
+		// va donner SI (faux OU vrai) 
+		// va donner SI (vrai) 
+	FIN SI
+	
+	SI (9 = 10 ET (5 > 6 OU 10 < 12))
+		// va donner SI (faux ET (faux OU vrai)) 
+		// va donner SI (faux ET vrai) 
+		// va donner SI (faux) 
+	FIN SI
+	
+	// une conditions renvoie un booléan. Ce booléen peut être utilisé comme ci-dessus dans une structure conditionnelle, ou encore pour mettre une valeur dans une variable.
+	
+	isOnline = vrai
+	isOnline = faux
+	isOnline = 10 > 5 // met vrai dans isOnline
+	isOnline = (5 > 20) // met faux dans isOnline
+	isOnline = (9 == 10 ET (5 > 6 OU 10 < 12)) // met faux dans isOnline
+Fin ALGO
+
+Les conditions liées par un ET sont d'abord testée ensemble, puis ensuite on teste les OU.
+Comme en mathématique, pour d'abord les additions (OU) avant les multiplications (ET) il fat mettre des parenthèses.
+C'est ce qu'on appelle l'algèbre de Boole.
+
+Exemple :
+5 + 5 * 3 = 5 + 15 = 20
+(5 + 5) * 3 = 10 * 3 = 30
+
+/*
+	Deuxième structure conditionnelle : le SELON
+	-Teste une valeur, et fais un traitement si un cas pour cette valeur est défini
+	-Les CAS sont les instructions à réaliser dans le cas où la valeur correspond
+	-Plusieurs CAS peuvent être mis les uns à la suite des autres si les instructions sont les mêmes (ci-dessous : CAS 0 ET CAS 5)
+*/
+
+Variables:
+	note: entier
+Algo
+	note = saisir "T'as eu combien ?"
+	
+	SELON note
+		CAS 0:
+		CAS 5:
+			afficher "Pas terrible"
+			FIN SELON (break)
+		CAS 10:
+			afficher "Moyen"
+			FIN SELON (break)
+		CAS 20:
+			afficher "Super"
+			FIN SELON (break)
+		DEFAUT:
+			afficher "Je sais pas quoi dire"
+	FIN SELON
+Fin Algo
+
+Variables:
+	note: entier
+Algo
+	note = saisir "T'as eu combien ?"
+	
+	SI note == 0
+		afficher "Pas terrible"
+	FIN SI
+	
+	SI note == 10
+		afficher "Moyen"
+	FIN SI
+	
+	SI note == 20
+		afficher "Super"
+	FIN SI
+	
+	/* 
+		Une écriture de SI plus propre : le SINON SI
+	*/
+	SI note == 0 OU NOTE == 5
+		afficher "Pas terrible"
+	SINON SI note == 10
+		afficher "Moyen"
+	SINON SI note == 20
+		afficher "Super"
+	SINON
+		afficher "Je ne sais pas quoi dire"
+	FIN SI
+	
+	SI note < 10
+		afficher "Pas terrible"
+	SINON SI note < 15
+		afficher "Moyen"
+	SINON SI note <= 20
+		afficher "Super"
+	SINON
+		afficher "Je ne sais pas quoi dire"
+	FIN SI
+	
+	
+	/* VERSION MOINS BIEN CAR PLUS DE TESTS ECRITS ET EXECUTES */
+	SI note <= 20 ET note >= 15
+	
+	SINON SI note < 15 ET note >= 10
+	
+	SINON note < 10 ET note >= 0
+	
+	SINON
+	
+	FIN SI
+Fin Algo
+
+
+
+
+Algo 2 : les tableaux et les boucles
+
+- Types primitifs de variables
+	- chaine de caractères : ensemble de caractères
+	- caractère
+	- entier
+	- numerique
+	- booléan : deux valeurs possibles vrai et faux
+
+- Type avancé :
+	- Tableau : ensemble de valeurs
+	
+Variables:
+	liste: tableau(4) de entier
+	produit: entier
+Algo:
+	ajouter 10 dans liste
+	ajouter 15 dans liste
+	ajouter 11 dans liste
+	ajouter 5 dans liste
+	
+	// les indices d'un tableau commencent à 0, donc pour afficher la 3em entrée, l'indice est 2
+	afficher liste[2]
+	
+	// pour multipler 10 avec 5
+	multiplier liste[0] avec liste[3]
+	stocker le résultat dans produit
+	
+	// retirer une case du tableau, les indices se trouvant après seront décalés de -1
+	retirer 15 de liste
+	retirer liste[2] de liste
+Fin Algo
+
+
+- Les boucles : faire un traitement plusieurs fois
+	- La boucle POUR : faire un traitement un nombre de fois déterminé
+	
+Variables:
+	indice: entier
+	listeChaines: tableau(3) de chaine de caractères
+	nbElements: entier
+	listeEntiers: tableau(100) de entier
+	chiffreAleatoire: entier
+Algo:
+	// faire 5 fois une instructions
+	// trois éléments pour une boucle pour : une initialisation, une condition d'arret, et un pas
+	pour indice de 1 à 5 avec un pas de 1
+		afficher "Bonjour"
+	fin pour
+	
+	// ajouter des éléments les uns à la suite des autres dans un tableau
+	ajouter "Bonjour" dans listeChaines
+	ajouter "Je m'apelle" dans listeChaines
+	ajouter "Toto" dans listeChaines
+	
+	// afficher les éléments un par un
+	afficher listeChaines[0]
+	afficher listeChaines[1]
+	afficher listeChaines[2]
+
+	// utiliser une boucle pour parcourir le tableau
+	pour indice de 0 à 2 avec un pas de 1
+		// à l'intérieur de la boucle, la variable indice à une valeur différente à chaque tour de boucle. On peut donc l'utiliser pour accéder aux éléments du tableau à tour de rôle
+		
+		afficher listeChaines[indice]
+	fin pour
+	
+	// la même mais sans écrire en dur la condition d'arrêt
+	
+	// récupérer la longueur du tableau dynamique
+	nbElements = longueur de listeChaines
+	
+	// faire un nombre d'itération dynamique
+	pour indice de 0 à nbElements-1 avec un pas de 1
+		afficher listeChaines[indice]
+	fin pour
+	
+	
+	// remplir un tableau grâce à une boucle
+	nbElements = longueur de listeEntiers
+	pour indice de 0 à nbElements-1 avec un pas de 1
+		chiffreAleatoire = générer entier aléatoire entre 0 et 500
+		ajouter chiffreAleatoire dans listeEntiers
+	fin pour
+	
+	// version tant que : pas la plus approprié car la boucle pour fait automatiquement l'initialisation et l'incrémentation
+	indice = 0
+	tant que indice <= 4
+		chiffreAleatoire = générer entier aléatoire entre 0 et 500
+		ajouter chiffreAleatoire dans listeEntiers
+		indice = indice + 1
+	fin tant que
+Fin Algo
+
+
+	- la boucle TANT QUE : faire un traitement un nombre de fois indéterminé
+Variables:
+	chiffre1: entier
+	chiffre2: entier
+	resultat: entier
+Algo:
+	chiffre1 = saisir "Veuillez saisir le premier chiffre"
+	
+	tant que chiffre1 n'est pas un entier
+		chiffre1 = saisir "Attention erreur, veuillez saisir un entier"
+	fin tant que
+	
+	chiffre2 = saisir "Veuillez saisir le second chiffre"
+	
+	tant que chiffre2 n'est pas un entier
+		chiffre2 = saisir "Attention erreur, veuillez saisir un entier"
+	fin tant que
+	
+	resultat = multiplier chiffre1 par chiffre2
+	
+	afficher resultat
+Fin Algo
+
+
+- Utilisation de POUR ou de TANT QUE :
+	- POUR quand on connait le nombre d'iétration à l'avance
+	- TANT QUE  si on ne connait pas à l'avance
+
+	- Boucle RÉPÉTER JUSQU'À : TANT QUE mais avec forcément au moins une itération
+	- POUR CHAQUE : POUR mais sans indice, et donc ne fonctionne que pour les tableaux
+	
+Algo:
+	// version TANT QUE:
+	chiffre1 = saisir "Veuillez saisir le premier chiffre"
+	
+	tant que chiffre1 n'est pas un entier
+		chiffre1 = saisir "Attention erreur, veuillez saisir un entier"
+	fin tant que
+	
+
+	// version RÉPÉTER JUSQU'À
+	REPETER
+		chiffre1 = saisir "Veuillez saisir le premier chiffre"
+	JUSQU'A chiffre est un entier
+Fin Algo
+	
+Variables:
+	listeChaines: tableau(3) de chaines de caractères
+	nbElements: entier
+	indice: entier
+	valeur: chaine
+Algo 
+	ajouter "Bonjour" dans listeChaines
+	ajouter "Je m'apelle" dans listeChaines
+	ajouter "Toto" dans listeChaines
+
+	// VERSION POUR
+	// récupérer la longueur du tableau dynamique
+	nbElements = longueur de listeChaines
+	
+	// faire un nombre d'itération dynamique
+	POUR indice de 0 à nbElements-1 avec un pas de 1
+		afficher listeChaines[indice]
+	FIN POUR
+	
+	
+	// VERSION POUR CHAQUE : à chaque itération, il n'y a pas besoin d'indice,
+	car la bouche met automatiquement dans la variable "valeur" la valeur de l'élément en cours, d'abord l'élément 1, puis 2, puis 3
+	POUR CHAQUE valeur DANS listeChaines
+		afficher valeur
+	FIN POUR CHAQUE
+Fin Algo
+	
+EXERCICE 1 :
+	- Ecrire l'algo qi calcule la factorielle d'un chiffre entier demandé à l'utilisateur.
+	Une factorielle, c'est quoi ?
+
+	Factorielle 5 s'écrit : 5!
+	resultat c'est 1 * 2 * 3 * 4 * 5
+	3! : 1 * 2 * 3
+
+	resultat = 1
+
+	- Faire une trace pour s'aider :
+	1*2*3*4*5*6
+
+	1*1=1
+	1*2=2
+	2*3=6
+	6*4=24
+	24*5=120
+	120*6=720
+
+	Variable:
+		chiffreSaisi: entier
+		resultat: entier
+	Algo:
+		chiffreSaisi = saisir “veuillez saisir un entier”
+
+		TANT QUE chiffreSaisi n’est pas un entier
+			chiffreSaisi = saisir “Attention erreur, veuillez saisir un entier”
+		fin TANT QUE
+
+		resultat = 1
+		POUR i de 1 à chiffreSaisi par pas de 1
+			resultat = resultat * i
+		FIN POUR
+
+		afficher resultat
+	Fin Algo
+
+EXERCICE 2 :
+	- Ecrire l'algo qui verifie si une chaine est un palindrome. Déclarer et initialiser une chaine au pif.
+	Exemple :
+		- chat n'est pas un palindrome car dans l'autre ça donne tahc
+		- kayak est un palindrome car dans l'autre sens ça donne kayak
+	Utiliser la chaine comme si c'était un tableau : la première lettre peut être obtenue par chaine[0], ensuite chaine[1], etc.	
+
+	
+Variables:
+	chaine1 : chaine de caractères
+	indice : entier
+	longueurChaine1 : entier
+	chaine2 : chaîne de caractères
+
+Algo
+	chaine1 = saisir "veuillez saisir une chaîne de caractères"
+
+	TANT QUE chaine1 est vide
+		chaine1 = saisir “veuillez saisir une chaîne de caractères”
+	fin TANT QUE 
+
+	longueurChaine = longueur de chaine1
+
+	chaine1 = ""
+	POUR indice de 0 à longueurChaine-1 par pas de 1
+		chaine2 = chaine2 concaténer avec chaine1[longueurChaine-indice]
+	fin POUR
+
+	Si chaine1=chaine2
+		afficher "cette chaine est un palindrome"
+	sinon
+		afficher "cette chaine n'est pas un palindrome"
+		
+	// deuxieme solution
+	// VERSION POUR
+	longueurChaine = longueur de chaine1
+	finBoucle = tronquer le resultat de (longueurChaine / 2)
+	isPalindrome = vrai
+	POUR indice DE 0 À finBoucle PAR PAS DE 1
+		SI chaine1[indice] est différent chaine1[finBoucle - indice]
+			isPalindrome = false
+			FIN POUR
+		FIN SI
+	FIN POUR
+	
+	/* VESION TANT QUE */
+	indice = 0
+	TANT QUE isPalindrome = vrai ET indice <= finBoucle
+		SI chaine1[indice] est différent chaine1[finBoucle - indice]
+			isPalindrome = false
+		FIN SI
+		indice = indice + 1
+	FIN TANT QUE
+	
+	SI isPalindrome = vrai
+		afficher "palindrome"
+	SINON
+		afficher "pas palindrome"
+	FIN SI
+Fin algo
+	
+/*
+	TRACE : 
+	salut
+
+	s avec t
+	faux donc on s'arrete
+
+	kayak
+	k avec k 	0 avec 4
+	ok
+	a avec a	1 avec 3
+	ok
+	y avec y	2 avec 2
+	ok
+		
+	ressasser
+	0 avec 8
+	1 avec 7
+	2 avec 6
+	3 avec 5
+	4 avec 4
+*/
+Algo 3 : les fonctions
+
+Une fonction est un série d'instruction (algo) auxquelles on va donner un nom
+afin de pouvoir utiliser cette suite d'instructions plusieurs fois ailleurs dans le code, sans avoir à les réécrire.
+Une fonction peut avoir des paramètres d'entrée et peut retourner une valeur.
+
+Variables
+Fonction direBonjour
+	afficher "Bonjour"
+Fin Fonction
+
+
+Variables
+Algo
+	executer direBonjour
+	// le code la fonction direBonjour a être exécuter
+	
+	executer direBonjour
+	executer direBonjour
+	// le code de la fonction à nouveau exécuter, donc plusieurs "Bonjour" affichés
+Fin algo
+
+
+- Fonction avec retour
+
+	Variables
+		resultat: entier
+	Fonction calculSimple
+		 resultat = 5 + 5
+		 
+		 retourner resultat
+	Fin Fonction
+
+
+	Variables
+		chiffre: entier
+	Algo
+		// la valeur de etour de la fonction est stocké dans la variable
+		// donc la fonction d'abord exécutée, puis remplacée par sa valeur de retour
+		chiffre = executer calculSimple
+		
+		afficher chiffre
+	Fin algo
+
+- fonction avec paramètres en entrée et retour	
+
+	Variables
+		resultat: entier
+	Fonction multiplication(parametreChiffre1, parametreChiffre2)
+		resultat = parametreChiffre1 * parametreChiffre2
+		retourner resultat
+	End Fonction
+	
+	Variables
+		produit: entier
+	Algo
+		produit = exécuter multiplication(5, 3)
+		afficher produit
+		
+		produit = exécuter multiplication(10, 2)
+		afficher produit
+		
+		produit = exécuter multiplication(12, 32)
+		afficher produit
+	Fin algo
+
+	
+Exercices :
+	- Ecrire la fonction qui prend un tableau en paramètre pour créer un autre tableau, donc les éléments sont inversés (en terme de position)
+	
+	- Utiliser cette fonction dans un algo, en créant un tableau pour obtenir un autre tableau inversés
+	
+	
+	Variables : 
+		indice : entier
+		longueurtableau : entier
+		nouveauTableau: tableau(4) de entier
+		
+	Fonction creerTableauInverse(parametretable1)
+			longueurtableau = longueur parametretable1
+		POUR indice DE 0 A longueurtableau-1
+			nouveauTableau[indice] = parametretable1[longueurtableau-1-indice]
+		FIN POUR
+
+		retourner nouveauTableau
+	FIN FONCTION
+
+
+	// Algo
+
+	Variables : 
+		tableau1 : tableau(4) de entier
+		tableau2 : tableau(4) de entier
+		longueurtableau1 : entier
+
+	Algo
+		ajouter 2 dans tableau1
+		ajouter 8 dans tableau1
+		ajouter 5 dans tableau1
+		ajouter 6 dans tableau1 
+		
+		tableau2 = exécuter Fonction creerTableauInverse (tableau1)
+	Fin Algo
+
+	
+ Ecrire l'algo qui génère un nombre aléatoire entre 1 et 5000
+ Puis qui donne la main à l'utilisateur pour trouver ce nombre.
+	- Quand l'utilisateur saisi un nombre plus petit, il faut lui dire "Plus grand" et lui redonner la main.
+	- Quand il saisit un nombre plus grand, il faut lui dire "Plus petit" et lui redonner la main.
+ Le programme s'arrête :
+	- quand le bon nombre est trouvé avec le message "Bravo",
+	- suivi de "Vous avez eu besoin de x chances", où x est le nombre de fois où il a saisi un nombre.
+	
+	FONCTION 
+	
+		fonction saisieUtilisateur (parametre1)
+			parametre2 = saisir " saisir un chiffre entier entre 1 et 5000";
+			
+TANT QUE parametre1 <1 OU >5000 OU n'est pas un entier
+				parametre1 = saisir "saisir un chiffre entier entre 1 et 5000";
+			fin TANT QUE
+
+
+VARIABLE FONCTION
+
+saisieUtilisateur : entier;
+
+FONCTION 
+	
+	
+	fonction saisieUtilisateur ()
+		saisieUtilisateur = saisir " saisir un chiffre entier entre 1 et 5000";
+		
+		TANT QUE saisieUtilisateur <1 OU >5000 OU n'est pas un entier
+			saisieUtilisateur = saisir "saisir un chiffre entier entre 1 et 5000";
+		fin TANT QUE
+		
+		retourner saisieUtilisateur
+		
+	fin fonction
+		
+VARIABLES
+
+	chiffreAleatoire : entier ;
+	chiffreSaisi : entier ;
+	nombreEssais : entier; 
+	gagne : boolean;
+
+ALGORITHME
+
+	gagne=false;
+	chiffreAleatoire = générer entier aléatoire compris entre 1 et 5000 ;
+ 	chiffreSaisi = exécuter Fonction saisieUtilisateur()
+	nombreEssais = 1
+
+	TANT QUE gagne=false;
+		Si chiffreSaisi>chiffreAleatoire
+			afficher "plus petit"
+			chiffreSaisi = exécuter fonction saisieUtilisateur()
+			nombreEssais = nombreEssais + 1 ;
+		
+		Sinon si chiffreSaisi<chiffreAleatoire
+			afficher "plus grand"
+			chiffreSaisi = exécuter fonction saisieUtilisateur();
+			nombreEssais = nombreEssais + 1 ; 
+		
+		Sinon
+		gagne=true;
+		fin Si
+
+fin TANT QUE
+		
+	afficher "bravo"
+	afficher "vous avez eu besoin de &nombreEssais "
+
+
+FIN ALGORITHME
+
+ALGORITHME
+	chiffreAleatoire = générer entier aléatoire compris entre 1 et 5000 ;
+ 	chiffreSaisi = exécuter Fonction saisieUtilisateur()
+	nombreEssais = 1
+
+	TANT QUE chiffreSaisi != chiffreAleatoire
+		Si chiffreSaisi>chiffreAleatoire
+			afficher "plus petit"
+		Sinon
+			afficher "plus grand"
+		fin Si
+
+		chiffreSaisi = exécuter fonction saisieUtilisateur()
+		nombreEssais = nombreEssais + 1 ; 
+	fin TANT QUE
+
+	/* VERSION REPETER JUSQU'A */
+	chiffreAleatoire = générer entier aléatoire compris entre 1 et 5000 ;
+	nombreEssais = 0
+	REPETER
+		chiffreSaisi = exécuter fonction saisieUtilisateur()
+		nombreEssais = nombreEssais + 1 ; 
+		Si chiffreSaisi>chiffreAleatoire
+			afficher "plus petit"
+		Sinon si chiffreSaisi < chiffreAleatoire
+			afficher "plus grand"
+		fin Si
+	JUSQU'A chiffreSaisi == chiffreAleatoire
+		
+	afficher "bravo"
+	afficher "vous avez eu besoin de &nombreEssais "
+
+
+FIN ALGORITHME
+
+	
+-----------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
+
+FONCTION	
+	
+	VARIABLES FONCTION saisieUtilisateur
+	
+	saisieUtilisateur : entier
+	
+	FONCTION
+	
+	fonction saisieUtilisateur()
+		saisieUtilisateur= saisir "saisir un chiffre entier entre 1 et 9"
+	
+		TANT QUE saisieUtilisateur <1 OU >9 OU n'est pas un entier
+			saisieUtilisateur = saisir "saisir un chiffre entier entre 1 et 9";
+		fin TANT QUE
+	
+	retourner saisieUtilisateur
+	Fin fonction
+
+	VARIABLES FONCTION afficherTableMultiplication
+	produit : entier
+	multiplicateur : entier
+	
+	FONCTION
+	fonction afficherTableMultiplication (paramètre1)
+				POUR multiplicateur de 1 a 10 par pas de 1
+					produit = multiplicateur * paramètre 1
+					afficher multiplicateur "*" paramètre1 "=" produit
+				FIN POUR
+	
+	fin fonction
+
+ALGORITHME
+	
+	VARIABLES ALGORITHME
+	
+	chiffreSaisi : entier
+
+	ALGORITHME
+	
+	
+	chiffreSaisi = exécuter fonction saisieUtilisateur();
+	
+	exécuter fonction afficherTableMultiplication(chiffreSaisi);
+
+FIN ALGORITHME
+
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+/*
+	Exercice 3 :
+	Ecrire l'algo qui demande 7 chiffres à l'utilisateur (à stocker dans un tableau) 
+	Puis affiche le nombre le plus petit saisi, puis le nombre le plus grand saisi
+*/
+
+FONCTIONS
+----------------------------------------------
+Variables
+	saisieUtilisateur : entier;
+
+fonction saisieUtilisateur()
+		saisieUtilisateur= saisir "saisir un entier"
+	
+		TANT QUE saisieUtilisateur n'est pas un entier
+			saisieUtilisateur = saisir "un entier";
+		fin TANT QUE
+	
+retourner saisieUtilisateur
+Fin fonction
+
+-----------------------
+Variables:
+	plusPetit: entier
+	
+Fonction getSmaller(paramTableau)
+	plusPetit = paramTableau[0]
+	POUR indice de 1 à 6 par pas de 1
+		SI paramTableau[indice] < plusPetit 
+			plusPetit = paramTableau[indice]
+		FIN SI
+	FIN POUR
+
+	RETOURNER plusPetit 
+Fin Fonction
+
+
+Variables:
+	plusGrand: entier
+	
+Fonction getBiggest(paramTableau)
+	plusGrand = paramTableau[6]
+	POUR indice de 0 à 5 par pas de 1
+		SI paramTableau[indice] > plusGrand
+			plusGrand = paramTableau[indice]
+		FIN SI
+	FIN POUR
+
+	RETOURNER plusGrand
+Fin Fonction
+
+
+
+
+-------------------------
+
+
+VARIABLES ALGORITHME
+
+tableSaisies : tableau(7)
+donneSaisie : entier
+
+ALGORITHME 
+
+Pour indice de 0 à 6 par pas de 1
+	donneeSaisie = exécuter fonction saisieUtilisateur;
+	ajouter donneeSaisie dans tableSaisies
+
+	ajouter exécuter fonction saisieUtilisateur dans tableSaisies
+FIN POUR
+
+/*afficher exécuter fonction getSmaller(tableSaisies)
+
+grand = exécuter fonction getBiggest(tableSaisies)
+afficher grand
+
+
+FIN ALGORITHME
+
+
+Algo5 - Structures
+Types de données structurées
+
+/*
+	1 : Tableau associatif 
+*/
+
+Variables:
+	personne: tableau associatif de chaines de caractères
+Algo:
+	ajouter "toto" dans personne à la clé "nom"
+	ajouter "59000" dans personne à la clé "code_postal"
+	ajouter "20" dans personne à la clé "age"
+	
+	personne["nom"] = "toto"
+	personne["code_postal"] = "59000"
+	personne["age"] = "20"
+	
+	afficher personne["nom"]
+	
+	/* version où on ne veut que les valeurs */
+	POUR CHAQUE valeur DANS personne
+		afficher valeur
+	FIN POUR CHAQUE
+	
+	/* version avec valeurs + clés */
+	POUR CHAQUE cle, valeur DANS personne
+		afficher cle + ":" + valeur
+	FIN POUR CHAQUE
+Fin algo
+
+/*
+	2 : Objet litteral
+*/
+
+Variables:
+	personne: objet litteral
+Algo:
+	personne = { 
+		nom: "toto",
+		ville: "Lille",
+		age: 20
+	}
+	
+	afficher personne.ville
+	afficher personne.age
+	
+	personne.ville = "Arras"
+	
+	afficher personne.ville
+Fin algo
+
+/*
+	3 : Structure
+*/
+Structure Personne:
+	nom: chaines de caractère
+	ville: chaines de caractère
+	age: entier
+	telephones: tableau(3) de chaines de caractères
+	voiture: Voiture
+Fin structure
+
+Structure Voiture:
+	marque: chaines de caractère
+	couleur: chaines de caractère
+Fin structure
+
+Variables:
+	individu: Personne
+	individu2: Personne
+Algo:
+	individu.nom = "John"
+	// Non, on peut pas : individu.email = "fab@mail.Fr"
+	
+	// la structure "Personne" contient une propriété "voiture" qui est de type "Voiture", donc ici "individu" a une propriété voiture de type Voiture
+	afficher individu.voiture.marque
+	
+	individu.voiture = individu2.voiture
+	
+	// attention sur la comparaison structure/objet
+	SI individu == individu2
+		// non attention, on va seulement vérifier si la zone mémoire des deux variables est la mêe, et non pas si les propriétés (chaines, entier, etc.) sont les mêmes pour les deux structures.
+	FIN SI
+Fin algo
+
+
+/** Exemple : récupérer des utilsiateurs en bdd **/
+Variables:
+	tabUtilisateurs: tableau de tableaux associatifs
+Algo:
+	// 1 - récupérer les utilisateurs en bdd
+	connexion à la base
+	exécuter requête sql "SELECT * FROM utilisateurs"
+	récupérer resultats requete dans tabUtilisateurs
+	// ou tabUtilisateurs = exécuter requête sql "SELECT * FROM utilisateurs"
+	
+	// 2- afficher chaque utilisateurs
+	afficher tabUtilisateurs[0]["email"]
+	
+	user = tabUtilisateurs[0]
+	afficher user["email"]
+	
+	POUR indice de 0 à longueur de tabUtilisateurs - 1 par pas de 1
+		afficher tabUtilisateurs[indice]["email"] + " " + tabUtilisateurs[indice]["date_naissance"]
+	FIN POUR
+	
+	POUR CHAQUE user DANS tabUtilisateurs
+		afficher user['email'] + " " + user["date_naissance"]
+	FIN POUR
+Fin Algo
+
+
+
+-----------------------------
+-----------------------------
+
+Variables
+
+	tbProduits : tableau de tableau associatif
+	tbVelo : tableau associatif
+	tbCadre: tableau associatif
+	tbChaise: tableau associatif
+	tbPull: tableau associatif 
+	
+// On remplit tbVelo
+		
+	tbVelo['nom']="velo"
+	tbVelo['prix']= 120
+	tbVelo['id']= 1
+	
+// On remplit tbCadre
+	
+	tbCadre['nom']="cadre"
+	tbCadre['prix']= 5
+	tbCadre['id']= 2
+	
+// On remplit tbChaise 
+
+	tbChaise['nom']="chaise"
+	tbChaise['prix']= 10
+	tbChaise['id']= 3
+	
+// On remplit tbPull
+
+	tbPull['nom']="pull"
+	tbPull['prix']= 15
+	tbPull['id']= 4
+	
+	
+// on remplit tbProduits
+
+	tbProduits[0]= tbVelo
+	tbProduits[1]= tbCadre
+	tbProduits[2]= tbChaise
+	tbProduits[3]= tbPull
+
+
+
+----------------------------------------------------------------
+<!DOCTYPE html>
+<head><meta charset="utf-8"/></head>
+
+<body>
+<script>
+var anneeActuelle= 2019;
+var age;
+var dateNaissance = prompt("Saisissez votre année de naissance au format JJ/MM/AAAA");
+
+var anneeNaissance = dateNaissance.split('/');
+console.log(anneeNaissance[2]);
+
+age = anneeActuelle-anneeNaissance[2];
+console.log(age);
+
+if (age>18){
+	document.write("Vous avez"+age+" ans, vous êtes majeur");
+	}
+	
+	else {
+	document.write("Vous avez "+age+" ans, vous êtes mineur");
+	}
+
+</script>
+
+
+</body>
+
+</html>
+
+
+________________________
+_________________________
+<!DOCTYPE html>
+<head>
+<<meta charset="utf-8"/>
+</head>
+
+<body>
+<form id ="formNote" class="formulaire">
+<input id="note" type ="text" placeholder ="Saisissez une note"/>
+<input type = "submit" value ="ajouter note"/></form>
+
+<span id= "mauvaise_saisie"></span>
+
+<script>
+var formNote = document.querySelector("#formNote");
+var tableauNotes = [];
+
+
+
+formNote.addEventListener("submit", function(event){
+	event.preventDefault();
+	var inputNoteSaisie = document.querySelector("#note");
+	var noteSaisie = inputNoteSaisie.value;
+	var spanId = document.querySelector("#mauvaise_saisie");
+	console.log(noteSaisie);
+	if (noteSaisie==""){
+			spanId.textContent ="";
+			var longueurNotes = tableauNotes.length;
+			var calculMoyenne= 0;
+			for (i = 0; i<longueurNotes ; i++){
+				;
+				spanId.innerHTML = spanId.innerHTML+"<br/>"+tableauNotes[i];
+				calculMoyenne = calculMoyenne+ parseInt(tableauNotes[i]);
+				console.log(calculMoyenne);
+			}
+			console.log(calculMoyenne);
+			console.log(longueurNotes);
+			var noteMoyenne = calculMoyenne/longueurNotes;
+			spanId.innerHTML= spanId.innerHTML+"<br/>"+"La Moyenne est de "+"<br/>"+noteMoyenne;
+		}
+			
+		else if	(noteSaisie>=0 && noteSaisie<=20){
+			tableauNotes.push(noteSaisie);
+			console.log(tableauNotes);
+			spanId.textContent = "note ajoutée";
+		}
+		
+
+		else { 
+		spanId.textContent = "merci de saisir une note entre 0 et 20";}
+	;
+	
+});
+
+
+</script>
+</body>
+</html>
+
+	
+
+/** bootstrap **/
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div class="container">
+			
+			<div class="alert alert-success">Mon div</div>
+			<div class="alert alert-danger">Message d'erreur</div>
+			
+			<div style="width:50%;margin:0 auto;">
+				<form>
+					<div class="form-group">
+						<label>Nom :</label>
+						<input type="text" class="form-control" />
+					</div>
+					
+					<div class="form-group">
+						<label>Civilité :</label>
+						<select class="form-control">
+							<option>Option1</option>
+							<option>Option2</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		
+		
+			<div class="row">
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+				<div class="col-12 col-sm-6 col-md-3">3 colonnes</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-6 offset-sm-2 offset-md-4">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+					  Launch demo modal
+					</button>
+		</div>
+			</div>
+			
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		</div>
+				
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+	</body>
+</html>
+

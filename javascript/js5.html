@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style >
+			h1{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="title">Manipulation du DOM avec JS</h1>
+		<p class="paragraphe" style="color:green">Premier paragraphe</p>
+		<p class="paragraphe" style="color:green">Deuxième paragraphe</p>
+		Toto <!-- est un noeud textuel -->
+		<h2>Titre h2 à supprimer</h2>
+		<div id="parent_mechant">
+			<p>Paragraphe à supprimer 1</p>
+			<p>Paragraphe à supprimer 2</p>
+		</div>
+
+	<script>
+		// l'objet "document" correspond à la balise html
+		console.log(document);
+		// childnodes pour accéder à tous les enfants d'un noeud
+		console.log(document.childNodes);
+
+		// accéder à la balise head
+		console.log(document.head);
+		//accéder à la balise body
+		console.log(document.body);
+		//accéder aux noeuds enfants de la balise body
+		console.log(document.body.childNodes);
+		//accéder au premier enfant de la balise body
+		console.log(document.body.childNodes[0]);
+		// un noeud en particulier peut être mis dans une variable
+		var textNode = document.body.childNodes[0];
+		console.log(textNode);
+
+		// accéder au parent d'un élément
+		var body = textNode.parentNode;
+		console.log(body);
+		// obtenir le type de ce noeud (textuel, p, h1, bref la balise en html)
+		var typeNode = textNode.nodeType;
+		console.log(typeNode);
+
+		// faire un traitement uniquement si le noeud est d'un certain type
+			// ici  document.TEXT_NODE est une constant qui vaut 3
+			// et qui correspond les noeuds textuels
+			// voir ici pour les différents types :
+			// https://developer.mozilla.org/fr/docs/Web/API/Node/nodeType
+			if (typeNode == document.TEXT_NODE) {
+}
+
+		// parcourir tous les enfants de body
+		// exo : afficher dans la console tous les noeuds enfants de body
+		// document.body.childNodes
+		for(i=0; i < document.body.childNodes.length; i++) {
+			console.log(document.body.childNodes[i]);
+		}
+
+		// récupérer des éléments pat tag
+		// ici, on veut récupérer tous les balises h1
+		// getElementsByTagName renvoie un tableau avec 0, 1 ou plusieurs éléments
+
+		var h1s = document.getElementsByTagName("h1");
+		console.log(h1s);
+
+		// sélecteur identifiant
+		// getElementBuId récupère un seul élément par son ID,
+		// ou renvoie null si aucun élément ne possède cet ID
+		var h1 = document.getElementById("title");
+		console.log(h1);
+
+		// sélecteur par classe
+		// getElementsByClassName renvoie un tableau avec 0, 1 ou plusieurs éléments
+		var paragraphe = document.getElementsByClassName("paragraphe");
+
+		/* MODIFIER DES ELEMENTS via js */
+		/* modifier les styles : toutes les propriétés css peuvent être modifiées */
+		h1.style.color = "pink";
+		h1.style.margin = "10px";
+		h1.style.fontSize = "50px";
+
+		/* modifier le contenu */
+		h1.innerHTML = "<p>Le html de H1 modifié en JS</p>";
+		// le texte de l'élément (ici <p> n'est pas interprété mais affiché)
+		h1.textContent = "Le texte de H1 modifié en JS";
+
+		// les rois méthodes de sélection au-dessus en sont plus à utiliser
+		// préférez querySelector, qui sert pour toutes les méthodes de sélection
+		// pour un élément : querySelector
+		var h1 = document.querySelector("#title");
+		// pour plusieurs éléments (donc un tableau) : querySelectorAll
+		var h1 = document.querySelectorAll(".paragraphe");
+
+
+		/* Supprimer un élément */
+		// 1ere méthode : sélectionner l'élément lui-même et le supprimer */
+		var h2ASupprimer = document.querySelector("h2");
+		h2ASupprimer.remove();
+
+		// 2eme méthode : supprimer un élément depuis le parent
+		var divParent = document.querySelector('#parent_mechant');
+		divParent.removeChild(document.querySelector('#parent_mechant p'));
+
+		// par son index : on supprime le deuxieme paragraphe
+		// car à ce moment du code le deuxième paragraphe est en 3eme position
+		// donc à l'index 2
+		divParent.removeChild(divParent.childNodes[2]);
+
+		/* Ajouter un élément dans le DOM */
+		// créer un élément paragraphe, (juste en mémoire pour le moment, il n'est pas encore affiché)
+		var newElementP = document.createElement("p");
+		newElementP.style.color = "purple";
+		newElementP.innerHTML = "Je suis le paragraphe ajouté dynamiquement";
+		// ligne qui affiche l'élément dans la page
+		document.body.appendChild(newElementP);
+
+		// affecter/modifier l'id de l'élément
+		newElementP.id ="id_du_p_dynamique";
+		// affecter/modifier les classes de l'élément
+		newElementP.classList = "classe1 classe2 classe3";
+		// ajouter une classe à l'élément
+		newElementP.classList.add("classe4");
+	</script>
+	</body>
+</html>

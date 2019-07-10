@@ -1,0 +1,15 @@
+Lancement de l'executable
+
+lancement du client
+
+test pour savoir si bien connecté : ping ---> response PONG
+
+pour créer on utilise: get "nom de la clé" " valeur de la clé"
+
+pour recuperer on utilise : set "nom de la clé"
+
+pour incrementté de 1: INCR " nom de la clé"
+
+pour décrémenter de 1 : DESR " nom de la clé"
+
+keys* pour recuperer tout

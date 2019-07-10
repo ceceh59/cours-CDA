@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice3</title>
+</head>
+<body>
+	<div id="div_principal">
+
+	<button id="btn">Ajouter</button>
+	
+	
+</div>
+	<script type="text/javascript">
+
+			/*function creerElement(typeElement) {
+				var element = document.createElement(typeElement);
+
+				return element;
+			}
+
+
+			button.addEventListener("click", function(){
+			
+				var div= document.querySelector("div");
+				
+			});
+			
+			var newElementDiv = document.createElement("enfant");
+
+		
+			newElementDiv.fontSize. = "75px";
+			newElementDiv.style.height ="75px";
+			document.body.appendChild(newElementDiv);
+			
+			function getRandomColor(newElementDiv) {
+ 			 var letters = '0123456789ABCDEF';
+  			var color = '#';
+  			for (var i = 0; i < 6; i++) {
+    		color += letters[Math.floor(Math.random() * 16)];
+  }
+  				return color;
+}
+
+			newElementDiv.style.borderColor = color;
+			
+
+			newElementDiv.addEventListener('mouseover',function() {
+				newElementDiv.style.backgroundColor = "green"
+			});
+			newElementDiv.addEventListener('mouseout',function() {
+				newElementDiv.style.backgroundColor = "transparent"
+			});
+
+
+			document.body.appendChild(newElementDiv);*/
+
+
+				function getRandomColor() {
+				var letters = '0123456789ABCDEF';
+				var color = '#';
+				for (var i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+
+			var divPrincipal = document.querySelector('#div_principal');
+			var btnAdd = document.querySelector('#btn');
+
+
+
+			// écouter le click sur le bouton
+			btnAdd.addEventListener("click", function() {
+				// créer un élément div en mémoire
+				var divEnfant = document.createElement("div");
+				// lui affecter des propriétés css
+				divEnfant.style.width = "75px";
+				divEnfant.style.height = "75px";
+				divEnfant.style.display = "inline-block";
+				divEnfant.style.border = "1px solid " + getRandomColor();
+				divEnfant.style.marginRight = "1px";
+
+				// afficher à l'écran le div enfant dans le principal
+				divPrincipal.appendChild(divEnfant);
+				// afficher dans l'élement sa position enfant
+				// en sélectionnant le nombre d'enfant qui ont le type "div", à partir de l'élément divPrincipal
+				divEnfant.innerHTML = divPrincipal.querySelectorAll("div").length;
+
+				// changer la couleur de fond au survol de l'élément
+				divEnfant.addEventListener('mouseover', function() {
+					divEnfant.style.backgroundColor = "green";
+				});
+				// remettre la couleur de fond à transparent quand la souris quitte l'élément
+				divEnfant.addEventListener('mouseout', function() {
+					divEnfant.style.backgroundColor = "transparent";
+				});
+				divEnfant.addEventListener('click', function() {
+					// supprimer l'élément sur lequel on a cliqué
+					divEnfant.remove();
+
+					// changer le texte des éléments pour remettre à jour le compteur
+					var divs = divPrincipal.querySelectorAll("div");
+					// on boucle sur les éléments div restants
+					for (i=0; i < divs.length;i++) {
+						// on met à jour le chiffre à l'intérieur
+						divs[i].innerHTML = i + 1;
+					}
+				});
+			});
+   			
+	</script>
+</body>
+</html>

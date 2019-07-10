@@ -1,0 +1,14 @@
+connexion base
+mongod --dbpath c:\MONGODB\DATA\db --port 27017 --logpath c:\MONGODB\DATA\log\log_27017.log
+
+demande de base
+
+mongo --port 27107
+
+dbs
+
+use gescom
+
+db.createColection("produit")
+
+db.categorie.insert({"id":4,"libelle":"cd"});

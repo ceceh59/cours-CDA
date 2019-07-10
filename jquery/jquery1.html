@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1 style="color:green">jQuery</h1>
+	<h1 style="color:green">AutreTitre</h1>
+
+	<div id="parent">
+		<div>Premier div</div>
+		<div>Deuxieme div</div>
+		<p>Premier paragraphe</p>
+		<div>Troisieme div</div>
+	</div>
+
+<script
+		  src="http://code.jquery.com/jquery-3.3.1.min.js"
+		  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		  crossorigin="anonymous"></script>
+
+		<script>
+			// javascript : sélectionner un élément
+			var h1 = document.querySelector('h1');
+			h1.innerHTML = "jQuery 2";
+
+			// la même en une ligne
+			document.querySelector('h1').innerHTML = "jQuery 2";
+
+			// jquery : sélectionner un élément
+			$('h1').html("jQuery 3"); 
+
+			// modifier le style d'un élément
+			var h1 = document.querySelector('h1');
+			h1.style.color = "purple";
+			// jQuery
+			$('h1').css('color', 'yellow');
+			$('h1').css('background-color', 'green');
+
+
+			// javascript
+			var divContenu = document.querySelector('#contenu');
+			// en javascript la ligne plante car divContenu est nul
+			//divContenu.innerHTML = "Nouveau contenu";
+
+			//jquery
+			$("#contenu").html("nouveau contenu jquery");
+
+
+			// jquery obtenir ou modifier l'id d'un élément
+			// modifier un attribut
+			$('h1').attr("id", "nmon_identifiant");
+			// obtenir la valeur d'un attribut
+			var idh1 = ($("h1").attr("id"));
+
+			// ajouter une/des classes ou en retirer
+			$("h1").addClass('1ere_classe');
+			$("h1").addClass('2eme_classe');
+			$("h1").addClass('3eme_classe');
+
+			$("h1").removeClass('2eme_classe');
+
+
+
+			// javascript : sélectionner tous les enfants d'un parent (y compris les enfants indirects)
+			var divParent = document.querySelector('#parent');
+			// récupère tous les noeuds, peu importe le type
+			var enfants = divParent.childNodes;
+			// récupère tous les noeuds HTML (div, p, img sans les noeuds textuels et commentaires)
+			var enfantsDirects = divParent.children;
+
+			// jquery : sélection simplifiée
+			var enfants = $("#parent").contents();
+			// tous les enfants HTML
+			var enfantsHTML = $("#parent").children();
+			// tous les enfants HTML, + un sélecteur restrictif, ici uniquement les enfants div
+			var enfantsHTMLDiv = $("#parent").children("div");
+
+
+			console.log(enfants);
+			console.log(enfantsHTML);
+			console.log(enfantsHTMLDiv);
+
+			// écouter des évenements
+			$("h1").on('click', function() {
+				alert('clic sur h1');
+			});
+
+			$("h1").on('mouseover', function() {
+				$(this).css('background-color','pink');
+			});
+
+			$("h1").on('mouseout', function() {
+				$(this).css('background-color','transparent');
+			});
+
+
+			// modification du DOM
+			// insérer du contenu
+			// javascript
+			var p = document.createElement('p');
+			p.innerHTML = "paragraphe ajouté dynamiquement en javascript";
+			var divParent = document.querySelector('#parent');
+			divParent.appendChild(p);
+
+			// jquery
+			// append : ajouté du contenu dans la sélection en dernière position
+			$("#parent").append("<p>");
+			$("#parent").append("<p>paragraphe ajouté dynamiquement en jquery</p>");
+			// prepend
+			$("#parent").prepend("<p>paragraphe ajouté en première position dynamiquement en jquery</p>");
+			// before / after
+			$("#parent").before('<p>Paragraphe ajouté en jquery juste avant le div parent</p>');
+			$("#parent").after('<p>Paragraphe ajouté en jquery juste après le div parent</p>');
+
+			// lorsque la sélection renvoie plusieurs éléments, l'insertion est donc multiple
+			$("h1").after('<p>paragraphe juste après un h1</p>');
+
+			$("<h2>Nouveau h2</h2>").appendTo($("#parent"));
+			$("<h2>Nouveau h2</h2>").prependTo($("#parent"));
+			$("<h2>Nouveau h2</h2>").insertBefore($("#parent"));
+			$("<h2 class='h2_a_supprimer'>Nouveau h2</h2>").insertAfter($("#parent"));
+
+			// supprimer un élément
+			$(".h2_a_supprimer").remove();
+
+			// boucler sur la liste d'élément sélectionné pour pouvoir des traitements différents si nécessaire
+			$("h1").each(function(index, element) {
+				console.log("h1 n°" + index);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,144 @@
+//demande du nom de la base connectée
+db
+
+show dbs
+
+use boutique// se connecter a boutique
+
+db produit.find().pretty()// trouver les produits ds la base
+
+
+
+
+//connexion base
+mongod --dbpath c:\MONGODB\DATA\DB --port 27017 --logpath c:\MONGODB\DATA\LOG\log_27017.log
+
+//demande de base
+
+mongo --port 27107
+
+dbs
+
+use gescom
+
+//creer un document
+db.createCollection("produit")
+
+db.categorie.insert({"id":4,"libelle":"cd"});
+
+//cat est la variable
+
+cat = db.categorie
+gescom.categorie
+
+//inserer
+> cat.insert([{"_id":6,"libelle":"ordinateur"},{"_id":7,"libelle":"vetement"}])
+
+cat.find();
+
+//supprimer
+cat.remove({"_id":3});
+
+//modifier
+cat.update({"_id":4},{$set:{"libelle":"livre"}});
+
+cat.update({"_id":4},{$rename:{"libelle":"nomCat"}});
+
+cat.update({"_id":4,"_id":6,"_id":7},{$rename:{"libelle":"nomCat"}});
+
+//modifier tout
+cat.update({},{$rename:{"libelle":"nomCat"}},{"multi":true});
+
+//modifier un champ
+cat.update({"_id":6},{$unset:{"monCat":1}});
+
+//importer
+mongoimport --db new_york --collection restaurants --file c:\MONGODB\restaurants.json --port 27017
+// exporter
+mongoexport --db new_york --collection restaurants --out c:\MONGODB\restaurantsceline.json --port 27017
+
+//recuperer
+cd ..
+
+cd MONGODB
+
+mongodump --port 27017
+
+//dans la base cote client -- port 27017
+
+show dbs
+
+use new_york
+
+db.restaurants.find({"borough":"Brooklyn"});
+db.restaurants.find({"borough":"Brooklyn","cuisine":"Italian"});
+
+// donne le nombre de restaurants
+db.restaurants.find({"borough":"Brooklyn","cuisine":"Italian"}).count();
+
+db.restaurants.find({"borough":"Brooklyn","cuisine":"Italian","address.street":"5 Avenue","name":/pizza/i}).count();
+
+db.restaurants.find({"borough":"Brooklyn","cuisine":"Italian","address.street":"5 Avenue","name":/pizza/i},{"name":1});
+
+db.restaurants.find({"grades.score":{"$lt":10}}).count();
+
+
+//creer une base
+use
+//creer une categorie
+
+db.createCollection("produit");
+
+//copier coller le script
+
+//le nb de films
+db.Cinema.find().count();
+
+// film de 1990 pretty pour avoir le detail
+db.Cinema.find({"annee":1990}).pretty();
+
+db.Cinema.find({"annee":{"$lt":2000}}).pretty();
+
+db.Cinema.find({"realisateur":{"nom":"Eastwood","prenom":"Clint"}}).pretty;
+
+db.Cinema.find({"realisateur.prenom":"Clint"}).pretty;
+
+db.Cinema.find({"realisateur.prenom":"Clint","annee":{$lt:2000}}).count();
+
+
+
+//replication
+
+....ex de commande pour creer
+mongod --replSet rs01 --port 27100 --dbpath c:\MONGODB\replication\rs01_instance01\db 
+--logpath c:\MONGODB\replication\rs01_instance01\log\log_27100.log --shardsvr
+mongod --replSet rs01 --port 27101 --dbpath c:\MONGODB\replication\rs01_instance02\db 
+--logpath c:\MONGODB\replication\rs01_instance02\log\log_27101.log --shardsvr
+mongod --replSet rs01 --port 27102 --dbpath c:\MONGODB\replication\rs01_instance03\db 
+--logpath c:\MONGODB\replication\rs01_instance03\log\log_27102.log --shardsvr
+
+mongod --replSet rs01 --port 27103 --dbpath c:\MONGODB\replication\rs01_arbitre\db 
+--logpath c:\MONGODB\replication\rs01_arbitre\log\log_27103.log --shardsv
+
+//ouvrir cote client apres avoir creer 4 instances 3 membres et un arbitre
+
+
+mongo --port 27100
+
+use admin
+
+db
+
+db.Produit.find()
+
+cfg={"_id":"rs01",members:[{"_id":0,"host":"127.0.0.0:27100"},
+{"_id":1,"host":"127.0.0.0:27101"},
+{"_id":3,"host":"127.0.0.0:27103","arbiterOnly":true}]};
+
+rs.initiate(cfg);
+
+db afficher la base
+use se connecter
+db.dropDatabase(); supprimer une db
+
+cls : nettoyer

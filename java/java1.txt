@@ -1,0 +1,100 @@
+
+        //déclation + initialisation
+        /* String [][] nom ={{"BART","LISA"},{"OMER","SIMPSON"}};
+      //déclaration + création
+      String [][] familleSimpson = new String[4][4];
+
+       familleSimpson[0][0]="BART";
+       familleSimpson[0][1]="LISA";
+        familleSimpson[0][2]="LISA";
+         familleSimpson[0][3]="LISA";
+       familleSimpson[1][0]="OMER";
+       familleSimpson[1][1]="SIMPSON";
+
+      
+       for(int i=0; i<familleSimpson.length;i++){
+         for(int j=0;j<familleSimpson[i].length;j++,k++){
+            System.out.print("  |  "+ familleSimpson[i][j]);
+         }
+            System.out.println("");
+       }*/
+        int[][] tab = {{0, 1, 2},
+        {4, 5, 6, 7},
+        {8, 9, 10, 11}};
+
+    }
+
+    public static boolean tousPositif(int[][] tab) {
+        boolean positif = true;
+
+        for (int i = 0; i < tab.length; i++) {
+            for (int j = 0; j < tab[i].length; j++) {
+                if (tab[i][j] < 0) {
+                    positif = false;
+                }
+            }
+        }
+        return positif;
+
+    }
+
+    public static void proportionEltNuls(int[][] tab) {
+        int nombreEltNuls = 0;
+        for (int[] sousTab : tab) {
+            for (int val : sousTab) {
+                if (val < 0) {
+                    nombreEltNuls++;
+                }
+            }
+        }
+            System.out.println("la proportion d'elements nuls :"+
+                    (nombreEltNuls / nombreEltTableau(tab)) * 100);
+        }    
+       
+       
+
+    public static int nombreEltTableau(int[][] tab) {
+        int nombreElt = 0;
+        for (int[] sousTab : tab) {
+            for (int val : sousTab) {
+                if (val < 0) {
+                    nombreElt++;
+                }
+            }
+        }
+        return nombreElt;
+    } 
+    public static int sommeImpaireSurBord(int[][] tab){
+        int somme =0;
+        //premiere ligne
+        for(int i=0;i<tab[0].length;i++){
+            if(tab[0][i]%2!=0){
+                somme = somme + tab[0] [i];
+                
+            }
+        }
+        //derniere ligne
+        int derniereLigne=(tab[tab.length-1].length)-1;
+        
+        for(int i=0;i<tab[derniereLigne-1].length;i++){
+          if(tab[derniereLigne-1][i]%2!=0){
+                somme = somme + tab[derniereLigne-1] [i];   
+        }
+        }
+        // premiere colonne
+        for(int j=1;j<tab.length-1;j++){
+            if(tab[j][0]%2!=0) {
+             somme = somme + tab[j] [0];    
+            }
+        }
+        //derniere colonne
+        int derniereColonne = tab[tab.length-1].length-1;
+        
+         for(int j=1;j<tab.length-1;j++){
+            if(tab[j][derniereColonne]%2!=0) {
+             somme = somme + tab[j] [derniereColonne];    
+            }
+        }
+        return somme;
+    }
+}

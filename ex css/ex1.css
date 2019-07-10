@@ -1,0 +1,47 @@
+body {
+	background-color: green;
+	color : #171616;
+	font-family: Arial, Heletica, sans-serif;
+	font-size: 18px
+	font-weight : normal;
+	line-height: 1.6em;
+	margin : auto;
+}
+
+.container {
+	width: 60%;
+	margin: auto;
+}
+
+.formulaire {
+	padding :2em;
+}
+
+.formulaire.form-group {
+	padding-bottom: 0.5em;
+
+}
+
+.formulaire label {
+	display: block;
+}
+
+.formulaire input[type="text"], .formulaire input[type="email"],{
+	padding:8px;
+	width:30%
+}
+
+.button input {
+	background-color: blue;
+	color: white;
+	height: 3em;
+	width: 8em;
+	padding: 10px 15px;
+	border: none;
+	margin: 2em;
+}
+
+.button :hover {
+	background-color: red;
+	color: white;
+}

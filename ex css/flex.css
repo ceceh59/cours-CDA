@@ -1,0 +1,9 @@
+.container div{
+	border: 1px solid #ccc;
+	padding: 0.2em;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}

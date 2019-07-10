@@ -1,0 +1,9 @@
+commit repostory créé
+
+git commit
+
+git add -A
+
+git commit -m"second commit"
+
+git push

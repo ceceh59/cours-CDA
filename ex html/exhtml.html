@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Premier exercice</title>
+	</head>
+	<body>
+		<!--Ceci est un header -->
+		<header>
+		<p>Ceci est mon header</p>	
+		</header>
+		<hr>
+		<!-- Ceci est une barre de navigation -->
+		<nav>
+			<p>Ceci est une barre de navigation</p>
+			<!--Ceci est un lien vers le site w3schools -->
+			<a href="https://www.w3schools.com/" target="_blank">W3schools</a> |
+			<a href="https://alsacreations.com" target="_blank">Alsacreations</a> |
+			<a href="http://google.fr" target="_blank">Google
+			</a>
+		</nav>
+		<hr>
+		<!-- Ceci est un article -->
+		<article>
+			<h1>Ceci est le titre de 1er niveau du 1er article.</h1>
+			<p>Timothy John Berners-Lee préside le <strong>W3C
+				<sup>*</sup>, organisme qu'il a fondé.</strong></p>
+			<Lorem> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			<br>
+			<br>
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</lorem>
+
+			<aside>
+				<!--Ceci permet de mettre un texte entre guilemets -->
+				<q cite="https://www.alsacreations.com/astuce/
+				lire/40-quest-ce-que-lew3c-aquoi-sert-il.html">
+					<strong><abbr title="World Wide Web Consortium
+						">WEC: </abbr></strong>Accronym de World Wide Web Consortium.
+				</q>
+				<!--Ceci permet d'ajouter une tabulation -->
+				<blockquote cite="https://fr.wikipedia.org/wiki/Prix_Turing">
+					<!-- Ceci permet de mettre le texte en italique -->
+					<em><Lorem> ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua.</lorent></em>
+				</blockquote>
+			</aside>
+		</article>
+		<hr>
+		<!-- Ceci est une section -->
+		<section>
+			<h1>Titre de 1er niveaux</h1>
+			<h2>Titre de 2ème niveau</h2>
+			<h3>Titre de 3ème niveau</h3>
+			<h4>Titre de 4ème niveau</h4>
+			<h5>Titre de 5ème niveau</h5>
+			<h6>Titre de 6ème niveau</h6>
+		</section>
+		<hr>
+		<!--liste non ordonnée -->
+		<ul>
+			<span>Liste de courses</span>
+			<li>Premier élément de la liste non ordonnée</li>
+			<li>Deuxième élément de la liste non ordonnée</li>
+			<li>Troisième élément de la liste non ordonnée</li>
+			<span>Liste de courses</span>
+		</ul>
+		<span>Liste ordonnée</span>
+		<ol>
+			<li>Premier élément de la liste ordonnée</li>
+			<li>Duexiéme élément de la liste ordonnée</li>
+			<li>Troisième élément de la liste ordonnée</li>
+		</ol>
+		<span>Liste de définitions</span>
+		<dl>
+			<dt>Terme à définir</dt>
+				<dd>Première définition</dd>
+				<dd>Seconde définition</dd>
+			<dt>Autre terme à définir</dt>
+				<dd>Première définition</dd>
+				<dd>Deuxième définition</dd>
+				<dd>Troisième défintion</dd>
+		</dl>
+		<hr>
+		<!-- Ceci est un tableau -->
+		<table title="mon tableau">
+			<thead>
+				<tr>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Tel</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Dubois</td>
+					<td>Paul</td>
+					<td>0620102010</td>
+				</tr>
+				<tr>
+					<td>Lapierre</td>
+					<td>Pierre</td>
+					<td>0650201450</td>
+				</tr>
+				<tr>
+				<td>Patrick</td>
+				<td>Conor</td>
+				<td rowspan="2">063021021</td>
+			</tr>
+			<tr>
+				<td colspan="2">Sarah Conor</td>
+			</tr>
+			</tbody>
+		</table>
+		<hr>
+		<!-- Ceci est un formulaire-->
+		<form method="post" action="enregistrement.js">
+			<fieldset>
+				<legend>Mon formulaire</legend>
+				<br>
+				<br>
+				<div>
+					<label>Nom</label>
+					<br>
+					<input type="text" name="nom"
+					placeholder="veuillez entrer votre nom">
+				</div>
+				<br>
+				<div>
+					<label>Prénom</label>
+					<br>
+					<input type="text" name="prenom"
+					placeholder="Veuillez entrer votre prénom">
+				</div>
+				<br>
+				<div>
+					<label>Tel</label>
+					<br>
+					<input type="text" name="tel"> 
+				</div>
+				<br>
+				<div>
+					<label>Email</label>
+					<br>
+					<input type="email" name="email"
+					placeholder="Veuillez entrer votre email">
+				</div>
+				<br>
+				<div>
+					<label>Message</label>
+					<br>
+					<textarea name="message" placeholder="Veuillez entrer votre message"></textarea>
+				</div>
+				<br>
+				<div>
+					<label>Ville</label>
+					<br>
+					<select name="ville">
+						<option value="Lille">Lille</option>
+						<option value="Villeneuved'Ascq">Villeneuve d'Ascq</option>
+						<option value="Roubaix">Roubaix</option>
+					</select>
+				</div>
+				<br>
+				<div>
+					<label>Mot de passe</label>
+					<br>
+					<input type="password" name="password">
+				</div>
+				<br>
+				<div>
+					<label>Age</label>
+					<input type="number" name="age" value="35">
+				</div>
+				<br>
+				<div>
+					<label>Date de naissance</label>
+					<br>
+					<input type="date" name="dateNaissance">
+				</div>
+				<br>
+				<div>
+					<label>Sexe</label>
+					<br>
+					<input type="radio" name="sexe" value="homme"checked>Homme
+					<input type="radio" name="sexe" value="femme">femme
+				</div>
+				<br>
+				<div>
+					<label>Langages de programmation</label>
+					<input type="checkbox" name="langage" value="javascript">Javascript
+					<input type="checkbox" name="langage" value= "php">php
+					<input type="checkbox" name="langage" value ="python">python
+				</div>
+				<br>
+				<input type="reset" name="reset">
+				<input type="submit" name="submit">
+			</fieldset>
+		</form>
+	</body>
+</html>

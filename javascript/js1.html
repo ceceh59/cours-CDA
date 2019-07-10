@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style type="text/css">
+			/* priorité au sélecteur par  !impoortant ID> classe > tag*/
+			div#contenu {
+				color: red;
+			}
+
+			div {
+				color: green !important;
+			}
+		</style>
+	</head>
+
+	<body>
+			<p style="color: green !important">Un paragraphe</p>
+	<script type="text/javascript">
+		// envoyer un message dans la console javascript
+		console.log("hello !");
+
+		// 1- les variables
+		// déclaration de la variable
+		var chaine; 
+
+		//initialisation de la variable : mettre pour la première fois une valeur
+		chaine = "Hello 2 !"; 
+		console.log(chaine);
+
+		// changer la valeur d'une variable : l'ancienne valeur est perdue
+		chaine = "Hello 3 !";
+		console.log(chaine);
+
+		// types de variables primitifs
+		var chaine = 'chaine';
+		var chaine2 = "l\'île"; // échapper le ' pour l'utiliser comme caractères dans la chaine
+		var chaine3 ="13"; //chaine même si la valeur est assimilable à un nombre
+
+		var entier = -50;
+		var entier2 = 123;
+
+		var boolean = true;
+		var boolean2 = false;
+
+		// opérations sur ces types de variable
+		// concaténation
+		var chaine_bonjour = "Bonjour";
+		var chaineprenom = "Fabian"; // moins visible
+		var chaineTotale = chaine_bonjour + " " + chaineprenom;
+		console.log(chaineTotale);
+
+		// opérations arithmétiques
+		var addition = 3 + 5;
+		var soustraction = 3 - 5;
+		var multiplication = 4 * 6;
+		var division = 10 / 3;
+
+		console.log(multiplication);
+		console.log(addition + soustraction);
+		console.log(4 * 6);  // calcule 4 + -2 * 5
+
+		var addition2 = "5" + 4;
+		console.log(addition2); // affiche 546 et non 15
+
+		var concatenation = "5" + (4 +6);
+		console.log(concatenation);
+		// grâce aux parenthèse, l'addition est réalisée
+		// puis la concaténation est utilisée car "5" est une chaine
+
+		// typage dynamique : le type d'une variable peut changer
+		var chaine = "test";
+		chaine = 50;
+		chaine = false;
+
+		// l'inverse du typage statique, ou un type doit être prévu pour une variable et ne peut changer
+
+
+		// en js, le type number existe pour les entiers et les décimales
+		var number = 50.5;
+		var number2 = 10 / 3;
+		console.log(number2);
+
+		// connaitre le type d'une variable
+		console.log(typeof number2);
+
+		// une constante ne change jamais de valeur tout au long du script
+		// elle peut être de n'importe quel type
+		const TVA = 0.20;
+		// TVA = 23; // impossible de modifier le 20
+
+		// forcer une addition avec une chaine
+		console.log(Number("5") + 3); // affiche 8 car Number a transformé le type de la chaine "5"
+
+		chaine = "55";
+		chaine = Number(chaine);
+
+		// dans le cas inverse
+
+		console.log(String(2) + 1);
+		console.log(2 + 1 + "test");
+
+		var chiffre = 5;
+		chiffre = chiffre +3;
+		chiffre += 3; // ajoute 3 à la variable elle-même
+		chiffre -= 2; // retire 2 à la variable elle-même
+		chiffre /= 8; // divise par 8 à la variable elle-même
+		chiffre *= 6; // multiplie par 6 à la variable elle-même
+		console.log(chiffre);
+
+		var salut = "salut";
+		salut += " ! ";
+		console.log(salut);
+
+		// incrémentation / décrémentation
+		var i =0;
+		i = i + 1;
+		i++; // augmente i de 1
+		i--; // diminue i de 1
+
+		// intéractions avec l'utilisateur
+		// afficher une info
+		var intermediaire = "Bonjour tout le monde" + ( 10 + i);
+		alert(intermediaire);
+		// pareil qu au dessus  alert("Bonjour tout le monde");
+
+		// demander une info :
+		var codePostal = prompt("Saisissez votre code postal :");
+		// la variable codePostal contient ce que l'utilisateur a saisi
+		console.log(codePostal);
+
+		/** Excercice 1 
+		-Demander à l'utilisateur son année de naissance
+		-Calculer son age
+		-Pour finir pour lui dire "vous avez x ans"
+		**/
+
+		var annee = prompt("Saississez votre année de naissance");
+		
+		var age = 2019 - annee;
+
+		alert("vous avez" + age + " ans");
+
+		/* en une ligne :
+		alert("Vous avez " + (2019 -prompt("Veuillez saisir votre année de naissance :")) + " ans");*/
+		
+
+		</script>
+	</body>
+</html>
